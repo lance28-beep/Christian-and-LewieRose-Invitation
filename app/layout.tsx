@@ -5,10 +5,10 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { siteConfig } from "@/content/site"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://muriel-and-czar-invitation.vercel.app/"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://christian-and-lewie-invitation.vercel.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const desktopHero = "/Details/LinkPreviewNew.jpg"
-const mobileHero = "/Details/LinkPreviewNew.jpg"
+const desktopHero = "/Details/LinkPreview.jpg"
+const mobileHero = "/Details/LinkPreview.jpg"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname}`
@@ -19,8 +19,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
   name: `${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} Wedding`,
-  startDate: "2026-05-29T15:00:00+08:00",
-  endDate: "2026-05-29T22:00:00+08:00",
+  startDate: "2026-02-10T15:00:00+08:00",
+  endDate: "2026-02-10T22:00:00+08:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: [
@@ -54,7 +54,7 @@ const jsonLd = {
     "@type": "Person",
     name: coupleNames,
   },
-  eventHashtag: `#naCZARightOneNasiMURIELANNE #MURIELisThewANNEforCZARALVIN #CZARfoundHisANNEtherHalf`,
+  eventHashtag: `#ChristianAndLewieRose #ChristianAndLewieRoseWedding #ChristianAndLewieRose2026`,
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   },
   description: eventDescription,
     keywords:
-    `${siteConfig.couple.groomNickname} ${siteConfig.couple.brideNickname} wedding, ${siteConfig.ceremony.venue} wedding, ${siteConfig.reception.venue} wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #naCZARightOneNasiMURIELANNE #MURIELisThewANNEforCZARALVIN #CZARfoundHisANNEtherHalf`,
+    `${siteConfig.couple.groomNickname} ${siteConfig.couple.brideNickname} wedding, ${siteConfig.ceremony.venue} wedding, ${siteConfig.reception.venue} wedding, wedding invitation, RSVP, wedding gallery, message wall, love story, #ChristianAndLewieRose #ChristianAndLewieRoseWedding #ChristianAndLewieRose2026`,
   applicationName: `${coupleNames} Wedding Invitation`,
   authors: [
     { name: siteConfig.couple.groomNickname },
@@ -133,7 +133,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${coupleNames} Wedding Invitation`,
     description:
-      `You're invited to the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #naCZARightOneNasiMURIELANNE #MURIELisThewANNEforCZARALVIN #CZARfoundHisANNEtherHalf`,
+      `You're invited to the wedding of ${siteConfig.couple.groomNickname} & ${siteConfig.couple.brideNickname} on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #ChristianAndLewieRose #ChristianAndLewieRoseWedding #ChristianAndLewieRose2026`,
     images: [eventImageUrl],
     creator: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,
     site: `@${siteConfig.couple.groomNickname}And${siteConfig.couple.brideNickname}`,

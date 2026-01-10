@@ -16,6 +16,7 @@ import { PrincipalSponsors } from "@/components/sections/principal-sponsors"
 import { BookOfGuests } from "@/components/sections/book-of-guests"
 import { Registry } from "@/components/sections/registry"
 import { FAQ } from "@/components/sections/faq"
+import { Celebration } from "@/components/sections/celebration"
 import { SnapShare } from "@/components/sections/snap-share"
 import { Footer } from "@/components/sections/footer"
 import { Hero as InvitationHero } from "@/components/loader/Hero"
@@ -53,7 +54,7 @@ export default function Home() {
             {enableDecor && (
               <div className="fixed inset-0 z-0 pointer-events-none">
                 <Suspense fallback={<div className="w-full h-full bg-gradient-to-b from-primary/10 to-secondary/5" />}>
-                  <Silk speed={5} scale={1.1} color="#999268" noiseIntensity={0.8} rotation={0.3} />
+                  <Silk speed={5} scale={1.1} color="#2A4279" noiseIntensity={0.8} rotation={0.3} />
                 </Suspense>
               </div>
             )}
@@ -75,6 +76,7 @@ export default function Home() {
               <BookOfGuests />
               <Registry />
               <FAQ />
+              <Celebration />   
               <SnapShare />
               <Footer />
             </div>

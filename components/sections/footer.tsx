@@ -87,39 +87,20 @@ export function Footer() {
   ] as const;
 
   return (
-    <footer className="relative z-20 mt-16 overflow-hidden"
-      style={{
-        backgroundImage: `
-          repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.03) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(0, 0, 0, 0.03) 3px
-          ),
-          repeating-linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.05) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(255, 255, 255, 0.02) 3px,
-            transparent 4px,
-            rgba(0, 0, 0, 0.03) 5px
-          ),
-          linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.1) 0%,
-            transparent 20%,
-            transparent 80%,
-            rgba(0, 0, 0, 0.1) 100%
-          )
-        `,
-        backgroundSize: '100% 4px, 8px 100%, 100% 100%',
-        backgroundPosition: '0 0, 0 0, 0 0',
-      }}
-    >
+    <footer className="relative z-20 mt-16 overflow-hidden">
       {/* Background matching countdown section */}
-      <div className="absolute inset-0 bg-[#9B4719] backdrop-blur-sm pointer-events-none" />
+      <div 
+        className="absolute inset-0 bg-[#292E41] backdrop-blur-sm pointer-events-none" 
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+            repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+            repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+          `,
+          backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+          filter: 'contrast(1.1) brightness(0.98)',
+        }}
+      />
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-16">
         {/* Wedding date presentation */}
         <motion.div
@@ -135,12 +116,12 @@ export function Footer() {
                   <div 
                     className="absolute inset-0 drop-shadow-lg"
                     style={{
-                      backgroundColor: '#EFD2AA',
-                      maskImage: 'url(/monogram/monogramNew2.png)',
+                      backgroundColor: '#F1D3D3',
+                      maskImage: 'url(/monogram/monogram.png)',
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
-                      WebkitMaskImage: 'url(/monogram/monogramNew2.png)',
+                      WebkitMaskImage: 'url(/monogram/monogram.png)',
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center'
@@ -151,17 +132,17 @@ export function Footer() {
 
               {/* Top decorative line */}
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#EFD2AA] to-transparent" />
+                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
               </div>
 
               {/* Save The Date text */}
-              <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-semibold text-[#EFD2AA] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-4 sm:mb-6">
                 Save The Date
               </p>
 
               {/* Bottom decorative line */}
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#EFD2AA] to-transparent" />
+                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
               </div>
             </div>
 
@@ -169,7 +150,7 @@ export function Footer() {
             <div className="text-center mb-8 sm:mb-10 md:mb-12">
               {/* Month - Elegant script style */}
               <div className="mb-4 sm:mb-5 md:mb-6">
-                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#EFD2AA] leading-none drop-shadow-lg font-semibold">
+                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-ephesis)] text-[#F1D3D3] leading-none drop-shadow-lg font-semibold">
                   {new Date(siteConfig.wedding.date).toLocaleDateString('en-US', { month: 'long' })}
                 </p>
               </div>
@@ -177,21 +158,21 @@ export function Footer() {
               {/* Day and Year - Horizontal layout with divider */}
               <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
                 {/* Day - Large and bold focal point */}
-                <p className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-[family-name:var(--font-crimson)] font-bold text-[#EFD2AA] leading-none drop-shadow-lg">
+                <p className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-[family-name:var(--font-crimson)] font-bold text-[#F1D3D3] leading-none drop-shadow-lg">
                   {new Date(siteConfig.wedding.date).getDate()}
                 </p>
 
                 {/* Vertical divider */}
-                <div className="h-16 sm:h-20 md:h-24 lg:h-28 w-px bg-gradient-to-b from-transparent via-[#EFD2AA] to-transparent" />
+                <div className="h-16 sm:h-20 md:h-24 lg:h-28 w-px bg-gradient-to-b from-transparent via-[#F1D3D3] to-transparent" />
 
                 {/* Year - Elegant and refined */}
-                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-crimson)] font-light text-[#EFD2AA] leading-none drop-shadow-sm">
+                <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-crimson)] font-light text-[#F1D3D3] leading-none drop-shadow-sm">
                   {new Date(siteConfig.wedding.date).getFullYear()}
                 </p>
               </div>
 
               {/* Day of Week */}
-              <p className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-medium text-[#EFD2AA] mb-6 sm:mb-8 tracking-wider">
+              <p className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-medium text-[#F1D3D3] mb-6 sm:mb-8 tracking-wider">
                 {siteConfig.ceremony.day}
               </p>
             </div>
@@ -200,17 +181,17 @@ export function Footer() {
             <div className="text-center">
               {/* Top decorative line */}
               <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
-                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#EFD2AA] to-transparent" />
+                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
               </div>
 
               {/* Time with elegant styling */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#EFD2AA] tracking-wider mb-4 sm:mb-5">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] tracking-wider mb-4 sm:mb-5">
                 {siteConfig.wedding.time}
               </p>
 
               {/* Bottom decorative line */}
               <div className="flex items-center justify-center gap-3">
-                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#EFD2AA] to-transparent" />
+                <div className="h-[1px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
               </div>
             </div>
           </div>
@@ -230,51 +211,51 @@ export function Footer() {
                   <div 
                     className="absolute inset-0"
                     style={{
-                      backgroundColor: '#EFD2AA',
-                      maskImage: 'url(/monogram/monogramNew2.png)',
+                      backgroundColor: '#F1D3D3',
+                      maskImage: 'url(/monogram/monogram.png)',
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
-                      WebkitMaskImage: 'url(/monogram/monogramNew2.png)',
+                      WebkitMaskImage: 'url(/monogram/monogram.png)',
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center'
                     }}
                   />
                 </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-[family-name:var(--font-crimson)] font-semibold text-[#EFD2AA] uppercase tracking-[0.15em] sm:tracking-[0.2em]">
-                  Muriel & Czar
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+                  Christian & Lewie Rose
                 </h3>
               </div>
               <div className="space-y-4">
-                <div className="flex items-center gap-3 font-[family-name:var(--font-crimson)] text-[#EFD2AA] font-medium">
-                  <Calendar className="w-5 h-5 text-[#EFD2AA]" />
+                <div className="flex items-center gap-3 font-[family-name:var(--font-crimson)] text-[#F1D3D3] font-medium">
+                  <Calendar className="w-5 h-5 text-[#F1D3D3]" />
                   <span className="text-base sm:text-lg">{siteConfig.wedding.date} • {siteConfig.ceremony.day}</span>
                 </div>
-                <div className="flex items-center gap-3 font-[family-name:var(--font-crimson)] text-[#EFD2AA] font-medium">
-                  <MapPin className="w-5 h-5 text-[#EFD2AA]" />
+                <div className="flex items-center gap-3 font-[family-name:var(--font-crimson)] text-[#F1D3D3] font-medium">
+                  <MapPin className="w-5 h-5 text-[#F1D3D3]" />
                   <span className="text-sm sm:text-base">{siteConfig.ceremony.venue}, {siteConfig.ceremony.address}</span>
                 </div>
               </div>
             </div>
 
             <motion.div
-              className="backdrop-blur-md rounded-2xl p-6 border border-[#6A1F08]/30 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{ backgroundColor: '#EFD2AA' }}
+              className="backdrop-blur-md rounded-2xl p-6 border border-[#292E41]/30 shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ backgroundColor: '#F1D3D3' }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <blockquote className="font-[family-name:var(--font-crimson)] text-[#6A1F08] font-medium italic text-base sm:text-lg leading-relaxed min-h-[80px]">
+              <blockquote className="font-[family-name:var(--font-crimson)] text-[#292E41] font-medium italic text-base sm:text-lg leading-relaxed min-h-[80px]">
                 "{displayedText}
-                <span className="inline-block w-0.5 h-6 bg-gradient-to-b from-[#6A1F08] to-[#6A1F08] ml-1 animate-pulse">
+                <span className="inline-block w-0.5 h-6 bg-gradient-to-b from-[#292E41] to-[#292E41] ml-1 animate-pulse">
                   |
                 </span>
                 "
               </blockquote>
               <div className="flex items-center gap-2 mt-4">
-                <div className="w-2 h-2 bg-gradient-to-br from-[#6A1F08] to-[#6A1F08] rounded-full shadow-sm" />
-                <div className="w-2 h-2 bg-gradient-to-br from-[#6A1F08] to-[#6A1F08] rounded-full shadow-sm" />
-                <div className="w-2 h-2 bg-gradient-to-br from-[#6A1F08] to-[#6A1F08] rounded-full shadow-sm" />
+                <div className="w-2 h-2 bg-gradient-to-br from-[#292E41] to-[#292E41] rounded-full shadow-sm" />
+                <div className="w-2 h-2 bg-gradient-to-br from-[#292E41] to-[#292E41] rounded-full shadow-sm" />
+                <div className="w-2 h-2 bg-gradient-to-br from-[#292E41] to-[#292E41] rounded-full shadow-sm" />
               </div>
             </motion.div>
           </motion.div>
@@ -282,50 +263,50 @@ export function Footer() {
           {/* Event Details quick tiles */}
           <motion.div className="space-y-6" variants={fadeInUp}>
             <motion.div
-              className="backdrop-blur-md rounded-2xl p-6 border border-[#6A1F08]/30 hover:border-[#6A1F08]/60 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{ backgroundColor: '#EFD2AA' }}
+              className="backdrop-blur-md rounded-2xl p-6 border border-[#292E41]/30 hover:border-[#292E41]/60 shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ backgroundColor: '#F1D3D3' }}
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#6A1F08] rounded-full flex items-center justify-center shadow-md">
-                  <Clock className="w-5 h-5 text-[#EFD2AA]" />
+                <div className="w-10 h-10 bg-[#292E41] rounded-full flex items-center justify-center shadow-md">
+                  <Clock className="w-5 h-5 text-[#F1D3D3]" />
                 </div>
-                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-[#6A1F08]">
+                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-[#292E41]">
                   Ceremony
                 </h4>
               </div>
-              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-[#6A1F08] font-medium text-sm sm:text-base">
+              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-[#292E41] font-medium text-sm sm:text-base">
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-[#6A1F08]" />
+                  <MapPin className="w-4 h-4 text-[#292E41]" />
                   <span>{siteConfig.ceremony.venue}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-[#6A1F08]" />
+                  <Clock className="w-4 h-4 text-[#292E41]" />
                   <span>{siteConfig.wedding.time}</span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              className="backdrop-blur-md rounded-2xl p-6 border border-[#6A1F08]/30 hover:border-[#6A1F08]/60 shadow-lg hover:shadow-xl transition-all duration-300"
-              style={{ backgroundColor: '#EFD2AA' }}
+              className="backdrop-blur-md rounded-2xl p-6 border border-[#292E41]/30 hover:border-[#292E41]/60 shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ backgroundColor: '#F1D3D3' }}
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#6A1F08] rounded-full flex items-center justify-center shadow-md">
-                  <Heart className="w-5 h-5 text-[#EFD2AA]" />
+                <div className="w-10 h-10 bg-[#292E41] rounded-full flex items-center justify-center shadow-md">
+                  <Heart className="w-5 h-5 text-[#F1D3D3]" />
                 </div>
-                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-[#6A1F08]">
+                <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl text-[#292E41]">
                   Reception
                 </h4>
               </div>
-              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-[#6A1F08] font-medium text-sm sm:text-base">
+              <div className="space-y-3 font-[family-name:var(--font-crimson)] text-[#292E41] font-medium text-sm sm:text-base">
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-[#6A1F08]" />
+                  <MapPin className="w-4 h-4 text-[#292E41]" />
                   <span>{siteConfig.reception.venue}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-4 h-4 text-[#6A1F08]" />
+                  <Clock className="w-4 h-4 text-[#292E41]" />
                   <span>{siteConfig.reception.time}</span>
                 </div>
               </div>
@@ -335,8 +316,8 @@ export function Footer() {
           {/* Contact + Quick Links */}
           <motion.div className="space-y-8" variants={fadeInUp}>
             <div>
-              <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl mb-6 flex items-center gap-3 text-[#EFD2AA]">
-                <div className="w-2 h-8 bg-gradient-to-b from-[#EFD2AA] to-[#EFD2AA] rounded-full" /> Follow
+              <h4 className="font-[family-name:var(--font-crimson)] font-bold text-lg sm:text-xl mb-6 flex items-center gap-3 text-[#F1D3D3]">
+                <div className="w-2 h-8 bg-gradient-to-b from-[#F1D3D3] to-[#F1D3D3] rounded-full" /> Follow
                 Us
               </h4>
               <div className="flex items-center gap-3 flex-wrap">
@@ -344,47 +325,47 @@ export function Footer() {
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#EFD2AA]/30 hover:border-[#EFD2AA]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
-                  style={{ backgroundColor: '#EFD2AA' }}
+                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#F1D3D3]/30 hover:border-[#F1D3D3]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
+                  style={{ backgroundColor: '#F1D3D3' }}
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-5 h-5 text-[#6A1F08]" />
+                  <Facebook className="w-5 h-5 text-[#292E41]" />
                 </a>
                 <a
                   href="https://www.instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#EFD2AA]/30 hover:border-[#EFD2AA]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
-                  style={{ backgroundColor: '#EFD2AA' }}
+                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#F1D3D3]/30 hover:border-[#F1D3D3]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
+                  style={{ backgroundColor: '#F1D3D3' }}
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-5 h-5 text-[#6A1F08]" />
+                  <Instagram className="w-5 h-5 text-[#292E41]" />
                 </a>
                 <a
                   href="https://www.tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#EFD2AA]/30 hover:border-[#EFD2AA]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
-                  style={{ backgroundColor: '#EFD2AA' }}
+                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#F1D3D3]/30 hover:border-[#F1D3D3]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
+                  style={{ backgroundColor: '#F1D3D3' }}
                   aria-label="TikTok"
                 >
-                  <Music2 className="w-5 h-5 text-[#6A1F08]" />
+                  <Music2 className="w-5 h-5 text-[#292E41]" />
                 </a>
                 <a
                   href="https://www.twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#EFD2AA]/30 hover:border-[#EFD2AA]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
-                  style={{ backgroundColor: '#EFD2AA' }}
+                  className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[#F1D3D3]/30 hover:border-[#F1D3D3]/60 transition-all hover:scale-110 shadow-md hover:shadow-lg"
+                  style={{ backgroundColor: '#F1D3D3' }}
                   aria-label="Twitter"
                 >
-                  <Twitter className="w-5 h-5 text-[#6A1F08]" />
+                  <Twitter className="w-5 h-5 text-[#292E41]" />
                 </a>
               </div>
             </div>
 
             <div>
-              <h5 className="font-[family-name:var(--font-crimson)] font-bold text-base sm:text-lg mb-4 text-[#EFD2AA]">
+              <h5 className="font-[family-name:var(--font-crimson)] font-bold text-base sm:text-lg mb-4 text-[#F1D3D3]">
                 Quick Links
               </h5>
               <div className="space-y-2">
@@ -392,7 +373,7 @@ export function Footer() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="block text-[#EFD2AA] font-medium hover:text-[#EFD2AA]/80 transition-colors duration-200 font-[family-name:var(--font-crimson)] text-sm sm:text-base hover:pl-2"
+                    className="block text-[#F1D3D3] font-medium hover:text-[#F1D3D3]/80 transition-colors duration-200 font-[family-name:var(--font-crimson)] text-sm sm:text-base hover:pl-2"
                   >
                     {item.label}
                   </a>
@@ -404,38 +385,38 @@ export function Footer() {
 
         {/* Bottom Row */}
         <motion.div
-          className="border-t border-[#EFD2AA]/40 pt-8"
+          className="border-t border-[#F1D3D3]/40 pt-8"
           variants={fadeInUp}
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-[#EFD2AA] font-[family-name:var(--font-crimson)] text-sm sm:text-base font-semibold">
-                © {year} Muriel & Czar. All rights reserved.
+              <p className="text-[#F1D3D3] font-[family-name:var(--font-crimson)] text-sm sm:text-base font-semibold">
+                © {year} Christian & Lewie Rose. All rights reserved.
               </p>
-              <p className="text-[#EFD2AA] font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-medium">
+              <p className="text-[#F1D3D3] font-[family-name:var(--font-crimson)] text-sm sm:text-base mt-1 font-medium">
                 Made with 💕 for our special day
               </p>
             </div>
 
             <div className="text-center md:text-right space-y-1">
-              <p className="text-[#EFD2AA] font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
+              <p className="text-[#F1D3D3] font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
                 Developed by{" "}
                 <a
                   href="https://lance28-beep.github.io/portfolio-website/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#EFD2AA] hover:text-[#EFD2AA]/80 transition-colors duration-200 underline decoration-[#EFD2AA]/40 hover:decoration-[#EFD2AA]/70 font-semibold"
+                  className="text-[#F1D3D3] hover:text-[#F1D3D3]/80 transition-colors duration-200 underline decoration-[#F1D3D3]/40 hover:decoration-[#F1D3D3]/70 font-semibold"
                 >
                   Lance Valle
                 </a>
               </p>
-              <p className="text-[#EFD2AA] font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
+              <p className="text-[#F1D3D3] font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-medium">
                 Want a website like this? Visit{" "}
                 <a
                   href="https://www.facebook.com/WeddingInvitationNaga"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#EFD2AA] hover:text-[#EFD2AA]/80 transition-colors duration-200 underline decoration-[#EFD2AA]/40 hover:decoration-[#EFD2AA]/70 font-semibold"
+                  className="text-[#F1D3D3] hover:text-[#F1D3D3]/80 transition-colors duration-200 underline decoration-[#F1D3D3]/40 hover:decoration-[#F1D3D3]/70 font-semibold"
                 >
                   Wedding Invitation Naga
                 </a>

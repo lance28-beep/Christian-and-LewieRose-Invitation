@@ -87,8 +87,8 @@ export function Navbar() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
         isScrolled
-          ? "bg-[#9B4719]/95 backdrop-blur-xl shadow-sm border-b border-[#800A06]/30 premium-shadow"
-          : "bg-[#9B4719]/85 backdrop-blur-lg border-b border-[#800A06]/20"
+          ? "bg-[#292E41]/95 backdrop-blur-xl shadow-sm border-b border-[#F1D3D3]/30 premium-shadow"
+          : "bg-[#292E41]/85 backdrop-blur-lg border-b border-[#F1D3D3]/20"
       }`}
       style={{
         backgroundImage: `
@@ -127,17 +127,17 @@ export function Navbar() {
               {/* Monogram Image */}
               <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
                 <Image
-                  src="/monogram/monogramNew2.png"
-                  alt="Muriel & Czar Monogram"
+                  src="/monogram/monogram.png"
+                  alt="Christian & Lewie Rose Monogram"
                   fill
                   className="object-contain"
-                  style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(8%) saturate(800%) hue-rotate(350deg) brightness(110%) contrast(95%)' }}
+                  style={{ filter: 'brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(1390%) hue-rotate(295deg) brightness(108%) contrast(96%)' }}
                   priority
                 />
               </div>
 
               {/* Names with accent color on hover */}
-              <div className="text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold group-hover:text-[#EFD2AA]/80 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#EFD2AA] uppercase whitespace-nowrap">
+              <div className="text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold group-hover:text-[#F1D3D3]/80 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#F1D3D3] uppercase whitespace-nowrap">
                 {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
               </div>
             </div>
@@ -152,13 +152,13 @@ export function Navbar() {
                   href={link.href}
                   className={`px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-wide transition-all duration-300 relative group ${
                     isActive
-                      ? "text-[#EFD2AA]"
-                      : "text-[#EFD2AA]/80 hover:text-[#EFD2AA]"
+                      ? "text-[#F1D3D3]"
+                      : "text-[#F1D3D3]/80 hover:text-[#F1D3D3]"
                   }`}
                 >
                   {link.label}
                   <span
-                    className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#EFD2AA] to-[#EFD2AA]/80 transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#F1D3D3] to-[#F1D3D3]/80 transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -174,8 +174,8 @@ export function Navbar() {
               socialItems={[]}
               displaySocials={false}
               displayItemNumbering={true}
-              menuButtonColor="#EFD2AA"
-              openMenuButtonColor="#EFD2AA"
+              menuButtonColor="#F1D3D3"
+              openMenuButtonColor="#F1D3D3"
               changeMenuColorOnOpen={true}
               colors={["#F9F8F4", "#800A06", "#6A1F08", "#F9F8F4", "#9F8650"]}
               accentColor="#F9F8F4"

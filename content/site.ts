@@ -1,14 +1,14 @@
 export const siteConfig = {
   couple: {
-    bride: "Muriel Anne B. Alberto",
-    brideNickname: "Muriel",
-    groom: "Czar Alvin P. Carpo",
-    groomNickname: "Czar",
+    bride: "Lewie Rose Adona",
+    brideNickname: "Lewie Rose",
+    groom: "Christian Casalme",
+    groomNickname: "Christian",
   },
   wedding: {
-    date: "May 29, 2026",
-    time: "2:00 PM",
-    venue: "Buddy-One Camp, Tuba, Benguet",
+    date: "February 10, 2026",
+    time: "3:00 PM",
+    venue: "Lokal ng Brookside & Kubo Grill",
     tagline: "are getting married!",
     theme: "Rustic Countryside",
     motif: "Rustic Countryside",
@@ -17,7 +17,7 @@ export const siteConfig = {
     rsvp: {
       deadline: "February 28, 2026",
       contacts: "+639XXXXXXXXX | +639XXXXXXXXX",
-      names: "Muriel & Czar"
+      names: "Christian & Lewie Rose"
     },
     policies: {
       attendance: "As we celebrate this moment with our closest loved ones, we kindly ask that attendance be limited to those named on the invitation",
@@ -27,65 +27,47 @@ export const siteConfig = {
     }
   },
   ceremony: {
-    location: "Buddy-One Camp",
-    venue: "Buddy-One Camp",
-    venueDetail: "Back Garden of buddy One camp",
-    address: "Tuba, Benguet",
-    date: "May 29, 2026",
-    day: "Friday",
-    time: "2:00 PM",
-    entourageTime: "2:00 PM",
-    guestsTime: "2:30 PM",
+    location: "Lokal ng Brookside & Kubo Grill",
+    venue: "Lokal ng Brookside & Kubo Grill",
+    venueDetail: "Ceremony & Reception Location",
+    address: "Lokal ng Brookside & Kubo Grill",
+    date: "February 10, 2026",
+    day: "Tuesday",
+    time: "3:00 PM",
+    entourageTime: "3:00 PM",
+    guestsTime: "3:00 PM",
   },
   reception: {
-    location: "Buddy-One Camp",
-    venue: "Buddy-One Camp",
-    venueDetail: "Function Hall pf Buddy One Camp",
-    address: "Tuba, Benguet",
-    date: "May 29, 2026",
-    time: "5:30 PM",
+    location: "Lokal ng Brookside & Kubo Grill",
+    venue: "Lokal ng Brookside & Kubo Grill",
+    venueDetail: "Ceremony & Reception Location",
+    address: "Lokal ng Brookside & Kubo Grill",
+    date: "February 10, 2026",
+    time: "3:00 PM",
   },
   dressCode: {
     theme: "Rustic Countryside",
-    colors: ["#C85A3A", "#D2691E", "#FF8C42", "#E3BC9A", "#D2B48C", "#C19A6B"],
-    description: "A warm, romantic mix of earthy tones, soft neutrals, and organic textures inspired by the simplicity and charm of the countryside. Colors: Rustic Color, Terracotta, Orange, Nude, Light Brown.",
+    colors: ["#FFB6C1", "#000080", "#C85A3A", "#D2691E", "#FF8C42", "#E3BC9A"],
+    description: "Attire guidelines for our special day. Ladies: Light Pink. Gentlemen: Navy Blue.",
     sponsors: {
       ladies: "Long Gown in Beige, Mocha, or Muted Rose tones",
       gentlemen: "Formal Barong Tagalog"
     },
     guests: {
-      ladies: "Dress in any earth tones of the theme colors (avoid white or ivory)",
-      gentlemen: "Long-sleeve polo in neutral or earth tones"
+      ladies: "Light Pink",
+      gentlemen: "Navy Blue"
     },
-    note: "Theme: Rustic Countryside - A warm, romantic mix of earthy tones, soft neutrals, and organic textures. Color Palette: Rustic Color, Terracotta, Orange, Nude, Light Brown."
+    note: "Attire guidelines: Ladies - Light Pink, Gentlemen - Navy Blue."
   },
-  narrative: `Czar Alvin and Muriel Anne first crossed paths in 2014 during a college graduation
-celebration held at the home of Christine—Czar’s friend and Muriel’s cousin. That day was
-simple and fleeting, filled with nothing more than shy smiles and a polite “hi” and “hello.”
-Little did they know, it was the quiet beginning of a story that would unfold years later.
-In 2015, plans were made for them to meet again, with Christine happily trying to play
-matchmaker. Time, however, had other plans. The meeting never happened, and despite
-Christine’s playful teasing and encouragement, Muriel remained reserved, letting destiny
-take its time. \n
-Nearly nine years passed. \n
-Then, on a bright and sunny day in February 2023, everything changed. Christine casually
-called Czar and asked how he was doing. Before ending the call, she gave him a number
-and told him to message it. What Czar didn’t know was that the number belonged to Muriel.
-With a simple “hi” and “hello,” their long-awaited connection finally began.
-From that moment on, conversations flowed effortlessly. Text messages turned into late-night
-calls, and calls turned into video chats filled with laughter, stories, and growing affection.
-Comfort slowly blossomed into something deeper and more meaningful. \n
-Their first official meeting—and first date since reconnecting—happened on March 18, 2023.
-From that day on, everything felt different—natural, genuine, and right. On April 1, 2023,
-their bond became official. And On May 27, 2023, Muriel’s birthday It was a day that
-confirmed what their hearts already knew: this was something special. \n
-As time went on, Czar and Muriel spent the next two and a half years nurturing their
-relationship, keeping the spark alive through love, care, patience, and mutual respect.
-Distance never weakened their bond, even when Czar began working abroad. Instead, it
-strengthened their commitment and their dreams for the future. \n
-With hearts full of hope and love, they now look forward to 2026—the year they plan to tie
-the knot, celebrate their journey, and begin a new chapter together as husband and wife,
-ready to build a happy family grounded in love that waited patiently, but arrived right on time.`,
+  narrative: `Christian and Lewie Rose first crossed paths and began their beautiful journey together.
+Their love story has been filled with meaningful moments, shared dreams, and growing affection.
+From the beginning, everything felt natural, genuine, and right. \n
+As time went on, Christian and Lewie Rose have nurtured their relationship, keeping the spark
+alive through love, care, patience, and mutual respect. Their bond has grown stronger with each
+passing day, building a foundation of trust and understanding. \n
+With hearts full of hope and love, they now look forward to February 10, 2026—the day they will
+tie the knot, celebrate their journey, and begin a new chapter together as husband and wife,
+ready to build a happy family grounded in love that arrived right on time.`,
   colors: {
     primary: "#C85A3A",
     secondary: "#D2691E",
