@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState, useCallback, useEffect } from "react"
+import Image from "next/image"
 import { MessageCircle, Heart, Sparkles } from "lucide-react"
 import { Section } from "@/components/section"
 import { Card, CardContent } from "@/components/ui/card"
@@ -89,7 +90,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
       
       <Card className={`relative w-full border-2 border-[#292E41]/25 shadow-lg transition-all duration-300 overflow-hidden rounded-xl ${
         isFocused ? 'border-[#292E41]/40' : 'hover:border-[#292E41]/35'
-      } ${isSubmitted ? 'animate-bounce' : ''}`} style={{ backgroundColor: '#F1D3D3' }}>
+      } ${isSubmitted ? 'animate-bounce' : ''}`} style={{ backgroundColor: '#E6DFD2' }}>
         
         {/* Success animation overlay */}
         {isSubmitted && (
@@ -103,19 +104,19 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           </div>
         )}
         
-        <CardContent className="relative p-4 sm:p-6 md:p-8" style={{ backgroundColor: '#F1D3D3' }}>
+        <CardContent className="relative p-4 sm:p-6 md:p-8" style={{ backgroundColor: '#E6DFD2' }}>
           {/* Header with icon */}
           <div className="text-center mb-4 sm:mb-6">
             <div className="relative inline-block mb-2 sm:mb-3">
               <div className="absolute inset-0 bg-[#292E41]/20 rounded-full blur-lg scale-150"></div>
-              <div className="relative w-9 h-9 sm:w-12 sm:h-12 bg-[#F1D3D3] rounded-full flex items-center justify-center mx-auto shadow-lg border-2 border-[#292E41]/20">
-                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 text-[#292E41]" />
+              <div className="relative w-9 h-9 sm:w-12 sm:h-12 bg-[#E6DFD2] rounded-full flex items-center justify-center mx-auto shadow-lg border-2 border-[#292E41]/20">
+                <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6 text-[#E6DFD2]" fill="#E6DFD2" />
               </div>
             </div>
-            <h3 className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-normal text-[#292E41] mb-1.5 sm:mb-2 uppercase tracking-[0.12em]">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#292E41] mb-1.5 sm:mb-2 uppercase tracking-[0.12em]" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
               Share Your Love
             </h3>
-            <p className="text-xs sm:text-sm text-[#292E41]/80 font-[family-name:var(--font-crimson)] font-light tracking-wide leading-relaxed px-1">
+            <p className="text-sm sm:text-base text-[#292E41]/80 font-normal tracking-wide leading-relaxed px-1" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
               Your message will be treasured forever
             </p>
           </div>
@@ -129,7 +130,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
           >
             {/* Name Field */}
             <div className="space-y-2 sm:space-y-2.5">
-              <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] uppercase tracking-wider">
+              <label className="block text-sm sm:text-base font-bold text-[#292E41] uppercase tracking-wider" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                 Your Name
               </label>
               <div className="relative">
@@ -141,7 +142,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Enter your name"
-                  className={`w-full border border-[#292E41]/30 rounded py-2 sm:py-2.5 px-3 sm:px-4 text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#292E41] placeholder:text-[#292E41]/40 transition-all duration-200 bg-white focus:outline-none ${
+                  className={`w-full border border-[#292E41]/30 rounded py-2 sm:py-2.5 px-3 sm:px-4 text-sm sm:text-base text-[#292E41] placeholder:text-[#292E41]/40 transition-all duration-200 bg-white focus:outline-none ${
                     focusedField === 'name' 
                       ? 'border-[#292E41] shadow-sm' 
                       : 'hover:border-[#292E41]/50'
@@ -153,13 +154,11 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             {/* Message Field */}
             <div className="space-y-2 sm:space-y-2.5">
               <div className="flex items-center justify-between">
-                <label className="block text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] uppercase tracking-wider">
+                <label className="block text-sm sm:text-base font-bold text-[#292E41] uppercase tracking-wider" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                   Your Message
                 </label>
                 {messageValue && (
-                  <span className={`text-xs font-[family-name:var(--font-crimson)] transition-colors ${
-                    messageValue.length > 500 ? 'text-red-500' : 'text-[#292E41]/50'
-                  }`}>
+                  <span className={`text-xs font-normal transition-colors ${messageValue.length > 500 ? 'text-red-500' : 'text-[#292E41]/50'}`} style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     {messageValue.length}/500
                   </span>
                 )}
@@ -177,7 +176,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                   onFocus={() => setFocusedField('message')}
                   onBlur={() => setFocusedField(null)}
                   placeholder="Share your love, memories, or well wishes..."
-                  className={`w-full border border-[#292E41]/30 rounded min-h-[100px] sm:min-h-[120px] text-sm sm:text-base font-[family-name:var(--font-crimson)] text-[#292E41] placeholder:text-[#292E41]/40 transition-all duration-200 resize-none bg-white py-2 sm:py-2.5 px-3 sm:px-4 focus:outline-none ${
+                  className={`w-full border border-[#292E41]/30 rounded min-h-[100px] sm:min-h-[120px] text-sm sm:text-base text-[#292E41] placeholder:text-[#292E41]/40 transition-all duration-200 resize-none bg-white py-2 sm:py-2.5 px-3 sm:px-4 focus:outline-none ${
                     focusedField === 'message' 
                       ? 'border-[#292E41] shadow-sm' 
                       : 'hover:border-[#292E41]/50'
@@ -190,8 +189,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
             <Button
               type="submit"
               disabled={isSubmitting || !nameValue.trim() || !messageValue.trim()}
-              className="w-full bg-[#292E41] hover:bg-[#292E41]/90 active:bg-[#292E41]/95 text-[#F1D3D3] py-2.5 sm:py-3 px-6 sm:px-8 text-xs sm:text-sm font-[family-name:var(--font-crimson)] font-semibold shadow-md transition-all duration-300 hover:scale-105 active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none border border-[#292E41] tracking-wider uppercase"
-              style={{ backgroundColor: '#292E41', color: '#F1D3D3', borderColor: '#292E41' }}
+              className="w-full bg-[#292E41] hover:bg-[#292E41]/90 active:bg-[#292E41]/95 text-[#E6DFD2] py-2.5 sm:py-3 px-6 sm:px-8 text-xs sm:text-sm font-bold shadow-md transition-all duration-300 hover:scale-105 active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none border border-[#292E41] tracking-wider uppercase"
+              style={{ backgroundColor: '#292E41', color: '#E6DFD2', borderColor: '#292E41', fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
             >
               
               {isSubmitting ? (
@@ -204,7 +203,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
                 </span>
               ) : (
                 <span className="flex items-center justify-center gap-2">
-                  <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#F1D3D3]" fill="#F1D3D3" />
+                  <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#E6DFD2]" fill="#E6DFD2" />
                   Send Message
                 </span>
               )}
@@ -256,28 +255,72 @@ export function Messages() {
     <Section 
       id="messages" 
       className="relative py-10 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{
-        backgroundColor: '#F1D3D3',
-      }}
     >
+      {/* Top Left Corner Decoration */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Top Right Corner Decoration */}
+      <div className="absolute top-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
          <div className="text-center mb-8 sm:mb-12 md:mb-16">
            <div className="flex items-center justify-center gap-2 mb-4">
-             <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+             <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
            </div>
-           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
              Love Messages
            </h2>
            <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-             <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+             <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
            </div>
           
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-ephesis)] text-[#F1D3D3] mb-2 sm:mb-3 md:mb-4">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-ephesis)] text-white mb-2 sm:mb-3 md:mb-4">
               Share Your Heartfelt Wishes
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-[#F1D3D3] font-[family-name:var(--font-crimson)] font-light leading-relaxed max-w-2xl mx-auto px-2 sm:px-4 tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl font-normal text-white leading-relaxed max-w-2xl mx-auto px-2 sm:px-4 tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
               Your messages of love and joy will be treasured forever. 
               Share your memories, well wishes, and congratulations for the happy couple.
             </p>
@@ -303,13 +346,13 @@ export function Messages() {
             <div className="relative inline-block mb-3 sm:mb-5">
               <div className="absolute inset-0 bg-[#292E41]/15 rounded-full blur-xl scale-150"></div>
               <div className="relative w-10 h-10 sm:w-14 sm:h-14 bg-[#292E41] rounded-full flex items-center justify-center mx-auto shadow-lg">
-                <Heart className="h-5 w-5 sm:h-7 sm:w-7 text-[#F1D3D3]" />
+                <Heart className="h-5 w-5 sm:h-7 sm:w-7 text-[#E6DFD2]" fill="#E6DFD2" />
               </div>
             </div>
-            <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] text-[#F1D3D3] mb-2 sm:mb-3">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
               Messages from Loved Ones
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-[#F1D3D3] font-[family-name:var(--font-crimson)] font-light max-w-2xl mx-auto px-2 sm:px-4 tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl font-normal text-white max-w-2xl mx-auto px-2 sm:px-4 tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
               Read the beautiful messages shared by family and friends
             </p>
           </div>

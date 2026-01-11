@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/content/site";
 import StaggeredMenu from "./StaggeredMenu";
 
@@ -87,37 +86,17 @@ export function Navbar() {
     <nav
       className={`sticky top-0 z-50 transition-all duration-500 ease-out ${
         isScrolled
-          ? "bg-[#292E41]/95 backdrop-blur-xl shadow-sm border-b border-[#F1D3D3]/30 premium-shadow"
-          : "bg-[#292E41]/85 backdrop-blur-lg border-b border-[#F1D3D3]/20"
+          ? "bg-[#E6DFD2]/95 backdrop-blur-xl shadow-sm border-b border-[#292E41]/30 premium-shadow"
+          : "bg-[#E6DFD2]/85 backdrop-blur-lg border-b border-[#292E41]/20"
       }`}
       style={{
         backgroundImage: `
-          repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.03) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(0, 0, 0, 0.03) 3px
-          ),
-          repeating-linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.05) 0px,
-            transparent 1px,
-            transparent 2px,
-            rgba(255, 255, 255, 0.02) 3px,
-            transparent 4px,
-            rgba(0, 0, 0, 0.03) 5px
-          ),
-          linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.1) 0%,
-            transparent 20%,
-            transparent 80%,
-            rgba(0, 0, 0, 0.1) 100%
-          )
+          repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+          repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+          repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
         `,
-        backgroundSize: '100% 4px, 8px 100%, 100% 100%',
-        backgroundPosition: '0 0, 0 0, 0 0',
+        backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+        filter: 'contrast(1.1) brightness(0.98)',
       }}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative">
@@ -126,39 +105,46 @@ export function Navbar() {
             <div className="flex items-center gap-2 sm:gap-3">
               {/* Monogram Image */}
               <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 group-hover:scale-105 transition-all duration-300">
-                <Image
-                  src="/monogram/monogram.png"
-                  alt="Christian & Lewie Rose Monogram"
-                  fill
-                  className="object-contain"
-                  style={{ filter: 'brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(1390%) hue-rotate(295deg) brightness(108%) contrast(96%)' }}
-                  priority
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundColor: '#292E41',
+                    maskImage: 'url(/monogram/monogram.png)',
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                    WebkitMaskImage: 'url(/monogram/monogram.png)',
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center'
+                  }}
                 />
               </div>
 
               {/* Names with accent color on hover */}
-              <div className="text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold group-hover:text-[#F1D3D3]/80 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#F1D3D3] uppercase whitespace-nowrap">
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold group-hover:text-[#292E41]/80 transition-all duration-300 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[#292E41] uppercase whitespace-nowrap" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                 {siteConfig.couple.brideNickname} & {siteConfig.couple.groomNickname}
               </div>
             </div>
           </Link>
 
-          <div className="hidden md:flex gap-1 items-center">
+          <div className="hidden md:flex gap-1 items-center justify-center flex-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 lg:px-4 py-1.5 text-xs lg:text-sm font-[family-name:var(--font-crimson)] font-normal tracking-wide transition-all duration-300 relative group ${
+                  className={`px-3 lg:px-4 py-1.5 text-sm lg:text-base font-bold tracking-wide transition-all duration-300 relative group ${
                     isActive
-                      ? "text-[#F1D3D3]"
-                      : "text-[#F1D3D3]/80 hover:text-[#F1D3D3]"
+                      ? "text-[#292E41]"
+                      : "text-[#292E41]/80 hover:text-[#292E41]"
                   }`}
+                  style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                 >
                   {link.label}
                   <span
-                    className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#F1D3D3] to-[#F1D3D3]/80 transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 h-[1.5px] bg-gradient-to-r from-[#292E41] to-[#292E41]/80 transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     }`}
                   />
@@ -167,15 +153,15 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="md:hidden relative z-20">
+          <div className="md:hidden relative z-20 flex items-center">
             <StaggeredMenu
               position="left"
               items={menuItems}
               socialItems={[]}
               displaySocials={false}
               displayItemNumbering={true}
-              menuButtonColor="#F1D3D3"
-              openMenuButtonColor="#F1D3D3"
+              menuButtonColor="#292E41"
+              openMenuButtonColor="#292E41"
               changeMenuColorOnOpen={true}
               colors={["#F9F8F4", "#800A06", "#6A1F08", "#F9F8F4", "#9F8650"]}
               accentColor="#F9F8F4"

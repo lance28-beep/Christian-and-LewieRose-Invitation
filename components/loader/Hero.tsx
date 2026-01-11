@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { FadeIn } from './FadeIn';
 
 interface HeroProps {
@@ -31,15 +30,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         
         {/* Top Logo/Monogram */}
         <FadeIn show={visible} delay={300} className="mb-auto mt-8">
-          <div className="w-20 h-24 border border-[#292E41]/40 rounded-[2rem] flex items-center justify-center backdrop-blur-sm bg-[#292E41]">
+          <div className="w-20 h-24 border border-[#292E41]/40 rounded-[2rem] flex items-center justify-center backdrop-blur-sm bg-[#E6DFD2]">
             <div className="relative w-14 h-14">
-              <Image
-                src="/monogram/monogram.png"
-                alt="Christian & Lewie Rose Monogram"
-                fill
-                className="object-contain"
-                style={{ filter: 'brightness(0) saturate(100%) invert(92%) sepia(3%) saturate(1390%) hue-rotate(295deg) brightness(108%) contrast(96%)' }}
-                priority
+              <div 
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: '#292E41',
+                  maskImage: 'url(/monogram/monogram.png)',
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                  WebkitMaskImage: 'url(/monogram/monogram.png)',
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center'
+                }}
               />
             </div>
           </div>
@@ -76,11 +81,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
           <FadeIn show={visible} delay={1500}>
             <button 
               onClick={onOpen}
-              className="group relative px-10 py-4 bg-[#292E41] text-[#F1D3D3] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#292E41]/90 shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden"
+              className="group relative px-10 py-4 bg-[#E6DFD2] text-[#292E41] font-serif text-sm tracking-[0.2em] uppercase transition-all duration-500 hover:bg-[#E6DFD2]/90 shadow-lg hover:shadow-xl hover:-translate-y-1 active:translate-y-0 rounded-sm overflow-hidden"
             >
               <span
-                className="relative z-10 text-[#F1D3D3]"
-                style={{ fontFamily: '"Cinzel", serif', fontWeight: 400 }}
+                className="relative z-10 text-[#292E41]"
+                style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 400, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}
               >
                 Open Invitation
               </span>

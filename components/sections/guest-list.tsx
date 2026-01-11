@@ -294,22 +294,16 @@ export function GuestList() {
       {/* Section Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-white mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em]"
-          style={{
-            textShadow:
-              "0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-          }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 uppercase tracking-[0.12em] sm:tracking-[0.15em] elegant-text-shadow"
+          style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}
         >
           RSVP
         </h2>
 
         <div className="space-y-3 sm:space-y-4">
           <p
-            className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-white font-light max-w-xl mx-auto leading-relaxed tracking-wide px-4"
-            style={{
-              textShadow:
-                "0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5)",
-            }}
+            className="text-lg sm:text-xl md:text-2xl font-normal text-white max-w-xl mx-auto leading-relaxed tracking-wide px-4"
+            style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
           >
             Please search for your name below to confirm your attendance and help us prepare for this special celebration
           </p>
@@ -323,8 +317,18 @@ export function GuestList() {
           <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
           <div
-            className="relative bg-[#F1D3D3] backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41] shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/80 overflow-visible"
-            style={{ overflow: "visible" }}
+            className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41] shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/80 overflow-visible"
+            style={{ 
+              overflow: "visible",
+              backgroundColor: '#E6DFD2',
+              backgroundImage: `
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+              `,
+              backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+              filter: 'contrast(1.1) brightness(0.98)'
+            }}
           >
             {/* Card content */}
             <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
@@ -334,10 +338,10 @@ export function GuestList() {
                     <Search className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                   </div>
                   <div>
-                    <label className="block text-sm sm:text-base md:text-lg font-semibold text-[#292E41] font-[family-name:var(--font-crimson)] mb-0.5 sm:mb-1">
+                    <label className="block text-base sm:text-lg md:text-xl font-bold text-[#292E41] mb-0.5 sm:mb-1" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       Find Your Name
                     </label>
-                    <p className="text-[10px] sm:text-xs text-[#292E41]/70 font-[family-name:var(--font-crimson)]">
+                    <p className="text-xs sm:text-sm md:text-base text-[#292E41]/70" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Type as you search to see instant results
                     </p>
                   </div>
@@ -354,17 +358,26 @@ export function GuestList() {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Type your name..."
-                      className="w-full pl-9 sm:pl-12 pr-3 sm:pr-5 py-2.5 sm:py-3.5 md:py-4 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] placeholder:text-[#292E41]/40 transition-all duration-300 hover:border-[#292E41]/50 focus:ring-4 focus:ring-[#292E41]/10 bg-white shadow-inner focus:shadow-lg"
+                      className="w-full pl-9 sm:pl-12 pr-3 sm:pr-5 py-2.5 sm:py-3.5 md:py-4 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-base sm:text-lg md:text-xl placeholder:text-[#292E41]/40 transition-all duration-300 hover:border-[#292E41]/50 focus:ring-4 focus:ring-[#292E41]/10 bg-white shadow-inner focus:shadow-lg"
+                      style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
                     />
                   </div>
                   {/* Autocomplete dropdown */}
                   {isSearching && filteredGuests.length > 0 && (
                     <div
-                      className="absolute z-50 w-full mt-2 sm:mt-3 bg-[#F1D3D3]/95 backdrop-blur-lg border border-[#292E41]/30 rounded-xl shadow-2xl overflow-hidden"
+                      className="absolute z-50 w-full mt-2 sm:mt-3 backdrop-blur-lg border border-[#292E41]/30 rounded-xl shadow-2xl overflow-hidden"
                       style={{
                         position: "absolute",
                         top: "100%",
                         zIndex: 50,
+                        backgroundColor: '#E6DFD2',
+                        backgroundImage: `
+                          repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                          repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                          repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                        `,
+                        backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                        filter: 'contrast(1.1) brightness(0.98)',
                       }}
                     >
                       <div className="relative">
@@ -380,11 +393,11 @@ export function GuestList() {
                               </div>
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-sm sm:text-base text-[#292E41] font-[family-name:var(--font-crimson)] group-hover:text-[#292E41]/90 transition-colors duration-200 truncate">
+                              <div className="font-bold text-base sm:text-lg text-[#292E41] group-hover:text-[#292E41]/90 transition-colors duration-200 truncate" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                                 {guest.Name}
                               </div>
                               {guest.Email && guest.Email !== "Pending" && (
-                                <div className="text-[10px] sm:text-xs text-[#292E41]/60 font-[family-name:var(--font-crimson)] truncate mt-0.5">
+                                <div className="text-xs sm:text-sm text-[#292E41]/60 truncate mt-0.5" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                                   {guest.Email}
                                 </div>
                               )}
@@ -411,11 +424,19 @@ export function GuestList() {
                   )}
                   {searchQuery && filteredGuests.length === 0 && (
                     <div
-                      className="absolute z-50 w-full mt-2 sm:mt-3 bg-[#F1D3D3]/95 backdrop-blur-lg border border-[#292E41]/30 rounded-xl shadow-2xl overflow-hidden"
+                      className="absolute z-50 w-full mt-2 sm:mt-3 backdrop-blur-lg border border-[#292E41]/30 rounded-xl shadow-2xl overflow-hidden"
                       style={{
                         position: "absolute",
                         top: "100%",
                         zIndex: 50,
+                        backgroundColor: '#E6DFD2',
+                        backgroundImage: `
+                          repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                          repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                          repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                        `,
+                        backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                        filter: 'contrast(1.1) brightness(0.98)',
                       }}
                     >
                       <div className="p-4 sm:p-5">
@@ -424,10 +445,10 @@ export function GuestList() {
                             <UserPlus className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-sm sm:text-base text-[#292E41] font-[family-name:var(--font-crimson)] mb-1">
+                            <h4 className="font-bold text-base sm:text-lg text-[#292E41] mb-1" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                               Not finding your name?
                             </h4>
-                            <p className="text-xs sm:text-sm text-[#292E41]/70 font-[family-name:var(--font-crimson)] leading-relaxed">
+                            <p className="text-sm sm:text-base text-[#292E41]/70 leading-relaxed" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                               We'd love to have you with us! Send a request to
                               join the celebration.
                             </p>
@@ -441,7 +462,8 @@ export function GuestList() {
                             });
                             setShowRequestModal(true);
                           }}
-                          className="w-full bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-[family-name:var(--font-crimson)] font-semibold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                          className="w-full bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white py-2.5 sm:py-3 rounded-xl text-base sm:text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                          style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                         >
                           <UserPlus className="h-3 w-3 sm:h-4 sm:w-4 mr-2 inline" />
                           Request to Join
@@ -459,7 +481,16 @@ export function GuestList() {
       {/* RSVP Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-1.5 sm:p-3 md:p-4 bg-black/50 backdrop-blur-sm animate-in fade-in">
-          <div className="relative w-full max-w-md sm:max-w-2xl mx-1.5 sm:mx-3 bg-[#F1D3D3] rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl border border-[#292E41] overflow-hidden animate-in zoom-in-95 duration-300 max-h-[98vh] flex flex-col">
+          <div className="relative w-full max-w-md sm:max-w-2xl mx-1.5 sm:mx-3 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl border border-[#292E41] overflow-hidden animate-in zoom-in-95 duration-300 max-h-[98vh] flex flex-col" style={{
+            backgroundColor: '#E6DFD2',
+            backgroundImage: `
+              repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+            `,
+            backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+            filter: 'contrast(1.1) brightness(0.98)'
+          }}>
             {/* Modal Header with Gradient */}
             <div className="relative bg-gradient-to-r from-[#0A3629] to-[#126555] p-3 sm:p-4 md:p-6 lg:p-8 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
@@ -469,23 +500,23 @@ export function GuestList() {
                     <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm flex-shrink-0">
                       <Heart className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
                     </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-crimson)] font-semibold text-white truncate">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white truncate" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       You're Invited!
                     </h3>
                   </div>
                   <div className="space-y-2 sm:space-y-3">
-                    <p className="text-white/95 text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] leading-tight sm:leading-normal">
+                    <p className="text-white/95 text-sm sm:text-base md:text-lg lg:text-xl leading-tight sm:leading-normal" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Hello{" "}
-                      <span className="font-bold text-[#FFFFFF]">
+                      <span className="font-bold text-[#FFFFFF]" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                         {selectedGuest?.Name}
                       </span>
                       , you are invited to our wedding!
                     </p>
                     <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-2.5 sm:px-3 py-1.5 sm:py-2">
                       <User className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
-                      <p className="text-white text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-medium">
+                      <p className="text-white text-xs sm:text-sm md:text-base font-normal" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                         We have reserved{" "}
-                        <span className="font-bold">
+                        <span className="font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                           {selectedGuest?.Guest || "1"}
                         </span>{" "}
                         seat
@@ -517,10 +548,10 @@ export function GuestList() {
                   <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-100 to-green-200 rounded-full mb-3 sm:mb-4 md:mb-6">
                     <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-green-600" />
                   </div>
-                  <h4 className="text-base sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-2 sm:mb-3">
+                  <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-2 sm:mb-3" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                     Thank You for Responding!
                   </h4>
-                  <p className="text-[#292E41]/80 font-[family-name:var(--font-crimson)] text-xs sm:text-sm md:text-base mb-3 sm:mb-4 md:mb-6 px-2">
+                  <p className="text-[#292E41]/80 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 md:mb-6 px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     We've received your RSVP and look forward to celebrating
                     with you!
                   </p>
@@ -529,7 +560,7 @@ export function GuestList() {
                       {selectedGuest?.RSVP === "Yes" && (
                         <>
                           <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-green-600" />
-                          <span className="text-sm sm:text-base md:text-lg font-semibold font-[family-name:var(--font-crimson)] text-green-600">
+                          <span className="text-base sm:text-lg md:text-xl font-bold text-green-600" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                             You're Attending!
                           </span>
                         </>
@@ -537,7 +568,7 @@ export function GuestList() {
                       {selectedGuest?.RSVP === "No" && (
                         <>
                           <XCircle className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-red-600" />
-                          <span className="text-sm sm:text-base md:text-lg font-semibold font-[family-name:var(--font-crimson)] text-red-600">
+                          <span className="text-base sm:text-lg md:text-xl font-bold text-red-600" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                             Unable to Attend
                           </span>
                         </>
@@ -546,10 +577,10 @@ export function GuestList() {
                     {selectedGuest?.RSVP === "Yes" && selectedGuest?.Guest && (
                       <div className="bg-white/40 rounded-lg p-2.5 sm:p-3 md:p-4 border border-[#292E41]/20">
                         <div className="text-center">
-                          <p className="text-[10px] sm:text-xs md:text-sm text-[#292E41]/70 font-[family-name:var(--font-crimson)] mb-0.5 sm:mb-1 font-medium">
+                          <p className="text-xs sm:text-sm md:text-base text-[#292E41]/70 mb-0.5 sm:mb-1 font-normal" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                             Number of Guests
                           </p>
-                          <p className="text-xl sm:text-2xl md:text-3xl font-bold font-[family-name:var(--font-crimson)] text-[#292E41]">
+                          <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#292E41]" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                             {selectedGuest.Guest || "1"}
                           </p>
                         </div>
@@ -559,7 +590,7 @@ export function GuestList() {
                       selectedGuest.Message &&
                       selectedGuest.Message.trim() !== "" && (
                         <div className="pt-2 sm:pt-3 border-t border-[#292E41]/20">
-                          <p className="text-[10px] sm:text-xs md:text-sm text-[#292E41]/80 font-[family-name:var(--font-crimson)] italic px-1">
+                          <p className="text-xs sm:text-sm md:text-base text-[#292E41]/80 italic px-1" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                             "{selectedGuest.Message}"
                           </p>
                         </div>
@@ -567,7 +598,8 @@ export function GuestList() {
                   </div>
                   <Button
                     onClick={handleCloseModal}
-                    className="mt-3 sm:mt-4 md:mt-6 bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-xl text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-semibold transition-all duration-300"
+                    className="mt-3 sm:mt-4 md:mt-6 bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-xl text-sm sm:text-base md:text-lg font-bold transition-all duration-300"
+                    style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                   >
                     Close
                   </Button>
@@ -583,7 +615,7 @@ export function GuestList() {
                 >
                   {/* Can you attend? */}
                   <div>
-                    <label className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-lg font-semibold text-[#292E41] mb-1.5 sm:mb-2 md:mb-4 font-[family-name:var(--font-crimson)] bg-[#F1D3D3] px-3 py-2 rounded-lg">
+                    <label className="flex items-center gap-1.5 sm:gap-2 text-sm sm:text-base md:text-lg lg:text-xl font-bold text-[#292E41] mb-1.5 sm:mb-2 md:mb-4 px-3 py-2 rounded-lg" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, backgroundColor: '#E6DFD2' }}>
                       <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-[#292E41] flex-shrink-0" />
                       <span className="leading-tight">Can you attend? *</span>
                     </label>
@@ -608,11 +640,12 @@ export function GuestList() {
                             }`}
                           />
                           <span
-                            className={`text-xs sm:text-sm md:text-base lg:text-xl font-bold font-[family-name:var(--font-crimson)] ${
+                            className={`text-sm sm:text-base md:text-lg lg:text-xl font-bold ${
                               formData.RSVP === "Yes"
                                 ? "text-green-600"
                                 : "text-[#292E41]"
                             }`}
+                            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                           >
                             Yes!
                           </span>
@@ -668,7 +701,8 @@ export function GuestList() {
                         min="1"
                         required
                         placeholder="How many guests?"
-                        className="w-full px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] placeholder:text-[#292E41]/40 transition-all duration-300 focus:ring-2 sm:focus:ring-4 focus:ring-[#292E41]/10 bg-white"
+                        className="w-full px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg placeholder:text-[#292E41]/40 transition-all duration-300 focus:ring-2 sm:focus:ring-4 focus:ring-[#292E41]/10 bg-white"
+                        style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
                       />
                     </div>
                   )}
@@ -680,7 +714,7 @@ export function GuestList() {
                       <span className="leading-tight">
                         Your Message to the Couple
                       </span>
-                      <span className="text-[10px] sm:text-xs md:text-sm font-normal text-[#292E41]/60">
+                      <span className="text-xs sm:text-sm md:text-base font-normal text-[#292E41]/60" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                         (Optional)
                       </span>
                     </label>
@@ -690,7 +724,8 @@ export function GuestList() {
                       onChange={handleFormChange}
                       placeholder="Share your excitement..."
                       rows={3}
-                      className="w-full px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] placeholder:text-[#292E41]/40 transition-all duration-300 focus:ring-2 sm:focus:ring-4 focus:ring-[#292E41]/10 resize-none bg-white"
+                      className="w-full px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 focus:border-[#292E41] rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg placeholder:text-[#292E41]/40 transition-all duration-300 focus:ring-2 sm:focus:ring-4 focus:ring-[#292E41]/10 resize-none bg-white"
+                      style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
                     />
                   </div>
 
@@ -699,7 +734,7 @@ export function GuestList() {
                     <label className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-lg font-semibold text-[#292E41] mb-1.5 sm:mb-2 md:mb-3 font-[family-name:var(--font-crimson)] flex-wrap bg-[#F1D3D3] px-3 py-2 rounded-lg">
                       <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5 text-[#292E41] flex-shrink-0" />
                       <span className="leading-tight">Your Email Address</span>
-                      <span className="text-[10px] sm:text-xs md:text-sm font-normal text-[#292E41]/60">
+                      <span className="text-xs sm:text-sm md:text-base font-normal text-[#292E41]/60" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                         (Optional)
                       </span>
                     </label>
@@ -718,19 +753,20 @@ export function GuestList() {
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold shadow-xl transition-all duration-300 hover:shadow-2xl disabled:opacity-70 min-h-[40px] sm:min-h-[44px] md:min-h-[48px]"
+                      className="w-full bg-gradient-to-r from-[#0A3629] to-[#126555] hover:from-[#126555] hover:to-[#0A3629] text-white py-2.5 sm:py-3 md:py-3.5 lg:py-4 rounded-lg sm:rounded-xl text-sm sm:text-base md:text-lg lg:text-xl font-bold shadow-xl transition-all duration-300 hover:shadow-2xl disabled:opacity-70 min-h-[40px] sm:min-h-[44px] md:min-h-[48px]"
+                      style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                     >
                       {isLoading ? (
                         <div className="flex items-center justify-center gap-2 sm:gap-3">
                           <RefreshCw className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
-                          <span className="text-xs sm:text-sm md:text-base">
+                          <span className="text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                             Submitting...
                           </span>
                         </div>
                       ) : (
                         <div className="flex items-center justify-center gap-2 sm:gap-3">
                           <Heart className="h-4 w-4 sm:h-5 sm:w-5" />
-                          <span className="text-xs sm:text-sm md:text-base">
+                          <span className="text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                             Submit RSVP
                           </span>
                         </div>
@@ -760,28 +796,28 @@ export function GuestList() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-crimson)] font-bold text-white mb-2 sm:mb-3 md:mb-4">
+                  <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3 md:mb-4" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                     RSVP Confirmed!
                   </h4>
 
                   {/* Message based on RSVP response */}
                   {formData.RSVP === "Yes" && (
                     <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 md:mb-5">
-                      <p className="text-white/95 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg font-medium">
+                      <p className="text-white/95 text-base sm:text-lg md:text-xl font-normal" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                         We're thrilled you'll be joining us!
                       </p>
-                      <p className="text-white/80 font-[family-name:var(--font-crimson)] text-xs sm:text-sm md:text-base">
+                      <p className="text-white/80 text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                         Your response has been recorded
                       </p>
                     </div>
                   )}
                   {formData.RSVP === "No" && (
-                    <p className="text-white/90 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg mb-3 sm:mb-4 md:mb-5">
+                    <p className="text-white/90 text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-5" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       We'll miss you, but thank you for letting us know.
                     </p>
                   )}
                   {!formData.RSVP && (
-                    <p className="text-white/90 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg mb-3 sm:mb-4 md:mb-5">
+                    <p className="text-white/90 text-base sm:text-lg md:text-xl mb-3 sm:mb-4 md:mb-5" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Thank you for your response!
                     </p>
                   )}
@@ -818,7 +854,16 @@ export function GuestList() {
       {/* Request to Join Modal */}
       {showRequestModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-1.5 sm:p-3 md:p-4 bg-black/50 backdrop-blur-sm animate-in fade-in">
-          <div className="relative w-full max-w-md sm:max-w-2xl mx-1.5 sm:mx-3 bg-[#F1D3D3] rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl border border-[#292E41] overflow-hidden animate-in zoom-in-95 duration-300 max-h-[98vh] flex flex-col">
+          <div className="relative w-full max-w-md sm:max-w-2xl mx-1.5 sm:mx-3 rounded-xl sm:rounded-2xl md:rounded-3xl shadow-2xl border border-[#292E41] overflow-hidden animate-in zoom-in-95 duration-300 max-h-[98vh] flex flex-col" style={{
+            backgroundColor: '#E6DFD2',
+            backgroundImage: `
+              repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+            `,
+            backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+            filter: 'contrast(1.1) brightness(0.98)'
+          }}>
             {/* Modal Header with Gradient */}
             <div className="relative bg-gradient-to-r from-[#0A3629] to-[#126555] p-3 sm:p-4 md:p-6 lg:p-8 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
@@ -828,15 +873,15 @@ export function GuestList() {
                     <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/30 rounded-full flex items-center justify-center backdrop-blur-sm flex-shrink-0">
                       <UserPlus className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
                     </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-[family-name:var(--font-crimson)] font-semibold text-white truncate">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white truncate" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       Request to Join
                     </h3>
                   </div>
-                  <p className="text-white/95 text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] leading-tight sm:leading-normal">
+                  <p className="text-white/95 text-sm sm:text-base md:text-lg leading-tight sm:leading-normal" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     {requestFormData.Name ? (
                       <>
                         Hi{" "}
-                        <span className="font-bold text-[#FFFFFF]">
+                        <span className="font-bold text-[#FFFFFF]" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                           {requestFormData.Name}
                         </span>{" "}
                         — want to celebrate with us? Send a request!

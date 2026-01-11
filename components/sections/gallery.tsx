@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Section } from "@/components/section"
@@ -93,9 +94,57 @@ export function Gallery() {
       id="gallery"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden"
     >
-      {/* Background matching countdown section */}
+      {/* Top Left Corner Decoration */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Top Right Corner Decoration */}
+      <div className="absolute top-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Background with paper texture */}
       <div 
-        className="absolute inset-0 bg-[#292E41] backdrop-blur-sm pointer-events-none" 
+        className="absolute inset-0 bg-[#E6DFD2] backdrop-blur-sm pointer-events-none" 
         style={{
           backgroundImage: `
             repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
@@ -110,15 +159,15 @@ export function Gallery() {
       {/* Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#292E41] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
           Our Moments
         </h2>
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#F1D3D3]/80 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+        <p className="text-base sm:text-lg md:text-xl font-normal text-[#292E41]/80 max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
           Every moment, a treasured memory made eternal
         </p>
       </div>
@@ -129,7 +178,7 @@ export function Gallery() {
           <div className="max-w-6xl w-full">
             {isLoading ? (
               <div className="flex items-center justify-center h-64 sm:h-80 md:h-96">
-                <div className="w-12 h-12 border-[3px] border-[#F1D3D3]/30 border-t-[#F1D3D3] rounded-full animate-spin" />
+                <div className="w-12 h-12 border-[3px] border-[#292E41]/30 border-t-[#292E41] rounded-full animate-spin" />
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
@@ -137,7 +186,7 @@ export function Gallery() {
                   <button
                     key={item.image + index}
                     type="button"
-                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-white/80 backdrop-blur-sm border border-[#F1D3D3]/30 shadow-lg hover:shadow-xl hover:border-[#F1D3D3]/50 transition-all duration-300"
+                    className="group relative w-full overflow-hidden rounded-lg sm:rounded-xl bg-white/80 backdrop-blur-sm border border-[#292E41]/30 shadow-lg hover:shadow-xl hover:border-[#292E41]/50 transition-all duration-300"
                     onClick={() => {
                       setSelectedImage(item)
                       setCurrentIndex(index)
@@ -145,7 +194,7 @@ export function Gallery() {
                     aria-label={`Open image ${index + 1}`}
                   >
                     {/* Subtle glow on hover */}
-                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#F1D3D3]/20 to-[#F1D3D3]/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
                     <div className="relative aspect-[3/4] md:aspect-square overflow-hidden">
                       <img
@@ -161,8 +210,8 @@ export function Gallery() {
                     </div>
                     
                     {/* Image counter badge */}
-                    <div className="absolute top-2 right-2 bg-[#F1D3D3]/60 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-xs font-medium text-[#292E41]">
+                    <div className="absolute top-2 right-2 bg-[#292E41]/60 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-xs font-medium text-[#E6DFD2]">
                         {index + 1}/{galleryItems.length}
                       </span>
                     </div>
@@ -177,7 +226,8 @@ export function Gallery() {
         <div className="relative z-10 flex justify-center mt-10 sm:mt-12 md:mt-16 px-4 sm:px-6">
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-3.5 md:py-4 lg:py-4.5 font-[family-name:var(--font-crimson)] font-semibold text-sm sm:text-base md:text-lg text-[#292E41] bg-[#EDABAD] hover:bg-[#EDABAD]/90 transition-all duration-300 tracking-wider uppercase border-2 border-[#EDABAD] hover:border-[#EDABAD]/80 hover:scale-105 hover:shadow-[0_10px_30px_rgba(237,171,173,0.25)] hover:brightness-105 active:scale-100 premium-shadow rounded-sm relative overflow-hidden group"
+            className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-3.5 md:py-4 lg:py-4.5 font-bold text-sm sm:text-base md:text-lg text-[#E6DFD2] bg-[#292E41] hover:bg-[#292E41]/90 transition-all duration-300 tracking-wider uppercase border-2 border-[#292E41] hover:border-[#292E41]/80 hover:scale-105 hover:shadow-[0_10px_30px_rgba(41,46,65,0.25)] hover:brightness-105 active:scale-100 premium-shadow rounded-sm relative overflow-hidden group"
+            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
           >
             <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></span>
             <span className="relative z-10">View Full Gallery</span>

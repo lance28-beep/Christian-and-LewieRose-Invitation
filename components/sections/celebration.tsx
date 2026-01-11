@@ -120,7 +120,7 @@ export function Celebration() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] max-w-3xl mx-auto leading-tight">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#292E41] max-w-3xl mx-auto leading-tight" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
             We can&apos;t wait to celebrate with you
           </h3>
         </motion.div>

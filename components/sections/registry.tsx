@@ -10,18 +10,42 @@ export function Registry() {
       id="registry"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden"
     >
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
       {/* Section Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
           Gift Registry
         </h2>
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#F1D3D3]/80 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+        <p className="text-lg sm:text-xl md:text-2xl font-normal text-white max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
           Your presence is the greatest gift of all
         </p>
       </div>
@@ -33,7 +57,16 @@ export function Registry() {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
             
-            <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#F1D3D3' }}>
+            <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+              backgroundColor: '#E6DFD2',
+              backgroundImage: `
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+              `,
+              backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+              filter: 'contrast(1.1) brightness(0.98)'
+            }}>
               <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
                 <div className="flex flex-col items-center space-y-6 sm:space-y-8">
                   {/* Heart icon */}
@@ -46,13 +79,13 @@ export function Registry() {
 
                   {/* Main message */}
                   <div className="text-center space-y-4 sm:space-y-6 max-w-2xl">
-                    <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-light text-[#292E41] leading-relaxed tracking-wide">
+                    <p className="text-lg sm:text-xl md:text-2xl font-normal text-[#292E41] leading-relaxed tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Your presence at our celebration is more than enough, and we are truly grateful for you sharing this special moment with us.
                     </p>
-                    <p className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-light text-[#292E41] leading-relaxed tracking-wide">
+                    <p className="text-lg sm:text-xl md:text-2xl font-normal text-[#292E41] leading-relaxed tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       However, if you would like to honor us with a gift, we would be deeply appreciative of a monetary contribution for our future together.
                     </p>
-                    <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] font-light text-[#292E41]/80 leading-relaxed tracking-wide italic">
+                    <p className="text-base sm:text-lg md:text-xl font-normal text-[#292E41]/80 leading-relaxed tracking-wide italic" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Gifts may be given during the celebration.
                     </p>
                   </div>
@@ -65,12 +98,21 @@ export function Registry() {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
             
-            <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#F1D3D3' }}>
+            <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+              backgroundColor: '#E6DFD2',
+              backgroundImage: `
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+              `,
+              backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+              filter: 'contrast(1.1) brightness(0.98)'
+            }}>
               <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
                 <div className="flex flex-col items-center space-y-4 sm:space-y-6">
                   {/* GCash Title */}
                   <div className="text-center">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-2 sm:mb-3 uppercase tracking-[0.12em]">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-2 sm:mb-3 uppercase tracking-[0.12em]" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       GCash
                     </h3>
                     <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
@@ -95,7 +137,7 @@ export function Registry() {
                   </div>
 
                   {/* Instruction text */}
-                  <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#292E41]/80 text-center max-w-md leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg font-normal text-[#292E41]/80 text-center max-w-md leading-relaxed" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     You may scan the QR code above to send your gift via GCash
                   </p>
                 </div>

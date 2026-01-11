@@ -141,15 +141,15 @@ export function SnapShare() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+            <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
             Snap & Share
           </h2>
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-            <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+            <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
           </div>
-          <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#F1D3D3]/80 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+          <p className="text-lg sm:text-xl md:text-2xl font-normal text-white max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
             Help us capture and share the magic of our special day
           </p>
         </motion.div>
@@ -171,7 +171,16 @@ export function SnapShare() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#F1D3D3' }}>
+                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+                  backgroundColor: '#E6DFD2',
+                  backgroundImage: `
+                    repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                  `,
+                  backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                  filter: 'contrast(1.1) brightness(0.98)'
+                }}>
                   {/* Card content */}
                   <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
                     <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
@@ -184,10 +193,10 @@ export function SnapShare() {
                       </div>
 
                       <div>
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-2 sm:mb-3">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-2 sm:mb-3" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                           Official Hashtags
                         </h3>
-                        <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#292E41]/70 mb-4 sm:mb-5 md:mb-6">
+                        <p className="text-sm sm:text-base md:text-lg font-normal text-[#292E41]/70 mb-4 sm:mb-5 md:mb-6" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                           Tag your photos and videos with our hashtags to share your
                           memories
                         </p>
@@ -200,7 +209,7 @@ export function SnapShare() {
                             key={hashtag}
                             className="flex items-center justify-center gap-2.5 sm:gap-3 px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 rounded-lg sm:rounded-xl border border-[#292E41]/20 hover:border-[#292E41]/40 transition-all duration-300 hover:shadow-md bg-gradient-to-br from-white/30 via-white/20 to-white"
                           >
-                            <span className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] break-all sm:break-normal tracking-wide">
+                            <span className="text-sm sm:text-base md:text-lg font-bold text-[#292E41] break-all sm:break-normal tracking-wide" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                               {hashtag}
                             </span>
                             <button
@@ -226,15 +235,24 @@ export function SnapShare() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#F1D3D3' }}>
+                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+                  backgroundColor: '#E6DFD2',
+                  backgroundImage: `
+                    repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                  `,
+                  backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                  filter: 'contrast(1.1) brightness(0.98)'
+                }}>
                   {/* Card content */}
                   <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
                     <div className="text-center space-y-4 sm:space-y-5 md:space-y-6">
                       <div>
-                        <h3 className="text-lg sm:text-xl md:text-2xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-2 sm:mb-3">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-2 sm:mb-3" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                           Upload Your Photos & Videos
                         </h3>
-                        <p className="text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] text-[#292E41]/70">
+                        <p className="text-sm sm:text-base md:text-lg font-normal text-[#292E41]/70" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                           Help us capture our special day! Scan the QR or use the actions below to drop your clips into our shared Drive.
                         </p>
                       </div>
@@ -251,7 +269,7 @@ export function SnapShare() {
                               fgColor="#292E41"
                             />
                           </div>
-                          <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-[#292E41]/70">
+                          <p className="text-xs sm:text-sm md:text-base font-normal text-[#292E41]/70" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                             📱 Scan with your camera app
                           </p>
                         </div>
@@ -259,7 +277,8 @@ export function SnapShare() {
                         <div className="w-full flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4">
                           <button
                             onClick={copyDriveLink}
-                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 hover:border-[#292E41]/50 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-white/40 hover:bg-white/60"
+                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 border-2 border-[#292E41]/30 hover:border-[#292E41]/50 rounded-lg text-sm sm:text-base md:text-lg font-bold text-[#292E41] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-white/40 hover:bg-white/60"
+                            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                           >
                             {copiedDriveLink ? (
                               <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-600" />
@@ -271,7 +290,8 @@ export function SnapShare() {
 
                           <button
                             onClick={downloadDriveQRCode}
-                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 rounded-lg text-sm sm:text-base md:text-lg font-bold text-[#E6DFD2] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                           >
                             <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                             <span>Download QR</span>
@@ -279,7 +299,8 @@ export function SnapShare() {
 
                           <button
                             onClick={openDrive}
-                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 rounded-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                            className="flex-1 inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 rounded-lg text-sm sm:text-base md:text-lg font-bold text-[#E6DFD2] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
+                            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                           >
                             <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                             <span>Open Drive</span>
@@ -298,10 +319,19 @@ export function SnapShare() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden text-center" style={{ backgroundColor: '#F1D3D3' }}>
+                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden text-center" style={{ 
+                  backgroundColor: '#E6DFD2',
+                  backgroundImage: `
+                    repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                  `,
+                  backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                  filter: 'contrast(1.1) brightness(0.98)'
+                }}>
                   {/* Card content */}
                   <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
-                    <h4 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-4 sm:mb-5 md:mb-6">
+                    <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-4 sm:mb-5 md:mb-6" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       Share Our Website
                     </h4>
 
@@ -318,14 +348,15 @@ export function SnapShare() {
                       </div>
                       <button
                         onClick={downloadQRCode}
-                        className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 text-[#F1D3D3] rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-semibold"
+                        className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 bg-[#292E41] hover:bg-[#292E41]/90 text-[#E6DFD2] rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-sm sm:text-base md:text-lg font-bold"
+                        style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                       >
-                        <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F1D3D3]" />
+                        <Download className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E6DFD2]" />
                         <span>Download QR Code</span>
                       </button>
                     </div>
 
-                    <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] text-[#292E41]/70">
+                    <p className="text-xs sm:text-sm md:text-base font-normal text-[#292E41]/70" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Scan with any camera app to visit our website
                     </p>
                   </div>
@@ -336,10 +367,19 @@ export function SnapShare() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#F1D3D3' }}>
+                <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+                  backgroundColor: '#E6DFD2',
+                  backgroundImage: `
+                    repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+                    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+                  `,
+                  backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+                  filter: 'contrast(1.1) brightness(0.98)'
+                }}>
                   {/* Card content */}
                   <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
-                    <h5 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#292E41] mb-4 sm:mb-5 md:mb-6 text-center">
+                    <h5 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-4 sm:mb-5 md:mb-6 text-center" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       Share on Social Media
                     </h5>
 

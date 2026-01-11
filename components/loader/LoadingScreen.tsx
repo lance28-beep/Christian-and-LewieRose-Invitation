@@ -40,9 +40,57 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
+      {/* Top Left Corner Decoration */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Top Right Corner Decoration */}
+      <div className="absolute top-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
       {/* Background with paper texture */}
       <div 
-        className="absolute inset-0 bg-[#292E41]"
+        className="absolute inset-0 bg-[#E6DFD2]"
         style={{
           backgroundImage: `
             repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
@@ -59,13 +107,19 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         <div className="relative flex items-center justify-center mb-8">
           <div className="flex flex-col items-center justify-center z-10">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32">
-              <Image
-                src="/monogram/monogram.png"
-                alt="Christian & Lewie Rose Monogram"
-                fill
-                className="object-contain"
-                style={{ filter: 'brightness(0) saturate(100%) invert(77%) sepia(19%) saturate(985%) hue-rotate(301deg) brightness(102%) contrast(87%)' }}
-                priority
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: '#292E41',
+                  maskImage: 'url(/monogram/monogram.png)',
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                  WebkitMaskImage: 'url(/monogram/monogram.png)',
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center'
+                }}
               />
             </div>
           </div>
@@ -74,8 +128,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         {/* Couple Name */}
         <div className="mb-4 text-center">
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl text-[#EDABAD] font-serif tracking-wide"
-            style={{ fontFamily: '"Cinzel", serif', fontWeight: 600 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#292E41] font-bold uppercase tracking-wide"
+            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}
           >
             Christian & Lewie Rose
           </h2>
@@ -84,8 +138,8 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         {/* Introductory Message */}
         <div className="mb-8 text-center max-w-md">
           <p
-            className="text-sm sm:text-base text-[#EDABAD] leading-relaxed"
-            style={{ fontFamily: '"Cinzel", serif', fontWeight: 400 }}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#292E41] leading-relaxed"
+            style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
           >
             Welcome to our special day. We're so excited to share this moment with you.
           </p>
@@ -93,9 +147,9 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
         {/* Progress Bar */}
         <div className="w-full max-w-xs sm:max-w-sm">
-          <div className="h-1 bg-[#EDABAD]/20 rounded-full overflow-hidden">
+          <div className="h-1 bg-[#292E41]/20 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#EDABAD] rounded-full transition-all duration-100 ease-out"
+              className="h-full bg-[#292E41] rounded-full transition-all duration-100 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

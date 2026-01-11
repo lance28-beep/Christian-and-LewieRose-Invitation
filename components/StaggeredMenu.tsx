@@ -52,7 +52,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   const textInnerRef = useRef<HTMLSpanElement | null>(null);
   const textWrapRef = useRef<HTMLSpanElement | null>(null);
-  const [textLines, setTextLines] = useState<string[]>(["Menu", "Close"]);
+  const [textLines, setTextLines] = useState<string[]>(["MENU", "CLOSE"]);
 
   const openTlRef = useRef<gsap.core.Timeline | null>(null);
   const closeTweenRef = useRef<gsap.core.Tween | null>(null);
@@ -311,14 +311,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
     textCycleAnimRef.current?.kill();
 
-    const currentLabel = opening ? "Menu" : "Close";
-    const targetLabel = opening ? "Close" : "Menu";
+    const currentLabel = opening ? "MENU" : "CLOSE";
+    const targetLabel = opening ? "CLOSE" : "MENU";
     const cycles = 3;
 
     const seq: string[] = [currentLabel];
     let last = currentLabel;
     for (let i = 0; i < cycles; i++) {
-      last = last === "Menu" ? "Close" : "Menu";
+      last = last === "MENU" ? "CLOSE" : "MENU";
       seq.push(last);
     }
     if (last !== targetLabel) seq.push(targetLabel);
@@ -431,14 +431,15 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         </div>
 
         <header
-          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-end p-[2em] bg-transparent pointer-events-none z-20"
+          className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-center p-[2em] bg-transparent pointer-events-none z-20"
           aria-label="Main navigation header"
         >
           <button
             ref={toggleBtnRef}
-            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-[family-name:var(--font-crimson)] font-medium leading-none overflow-visible pointer-events-auto ${
-              open ? "text-[#F1D3D3]" : "text-[#F1D3D3]"
+            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-bold leading-none overflow-visible pointer-events-auto uppercase ${
+              open ? "text-[#292E41]" : "text-[#292E41]"
             }`}
+            style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontSize: '0.875rem' }}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="staggered-menu-panel"

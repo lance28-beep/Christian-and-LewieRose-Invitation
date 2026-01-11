@@ -3,6 +3,7 @@
 import React from "react";
 import { useState, useEffect, useMemo } from "react";
 import { Loader2, Users } from "lucide-react";
+import Image from "next/image";
 
 interface EntourageMember {
   Name: string;
@@ -98,7 +99,8 @@ export function Entourage() {
           : "text-center";
     return (
       <h3
-        className={`text-xs sm:text-sm md:text-base lg:text-lg font-[family-name:var(--font-crimson)] font-semibold uppercase text-[#292E41] mb-2 sm:mb-3 md:mb-4 tracking-[0.1em] sm:tracking-[0.12em] ${textAlign} ${className}`}
+        className={`text-sm sm:text-base md:text-lg lg:text-xl font-bold uppercase text-[#292E41] mb-2 sm:mb-3 md:mb-4 tracking-[0.1em] sm:tracking-[0.12em] ${textAlign} ${className}`}
+        style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
       >
         {children}
       </h3>
@@ -132,13 +134,15 @@ export function Entourage() {
         className={`flex flex-col ${containerAlign} justify-center py-0.5 sm:py-1 md:py-1.5 leading-tight sm:leading-relaxed`}
       >
         <p
-          className={`text-[#292E41] text-xs sm:text-sm md:text-base font-[family-name:var(--font-crimson)] font-medium ${textAlign}`}
+          className={`text-[#292E41] text-sm sm:text-base md:text-lg font-normal ${textAlign}`}
+          style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
         >
           {member.Name}
         </p>
         {showRole && member.RoleTitle && (
           <p
-            className={`text-[#292E41]/60 text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-normal mt-0.5 sm:mt-1 leading-tight sm:leading-snug ${textAlign}`}
+            className={`text-[#292E41]/60 text-xs sm:text-sm md:text-base font-normal mt-0.5 sm:mt-1 leading-tight sm:leading-snug ${textAlign}`}
+            style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
           >
             {member.RoleTitle}
           </p>
@@ -202,18 +206,66 @@ export function Entourage() {
       id="entourage"
       className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
+      {/* Top Left Corner Decoration */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Top Right Corner Decoration */}
+      <div className="absolute top-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1] scale-y-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
       {/* Section Header */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-3 sm:px-4 md:px-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
           Wedding Entourage
         </h2>
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-white to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#F1D3D3]/90 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-normal text-white max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
           Our cherished family and friends
         </p>
       </div>
@@ -225,14 +277,23 @@ export function Entourage() {
           {/* Subtle glow on hover */}
           <div className="absolute -inset-1 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg" />
 
-          <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ backgroundColor: '#EDABAD' }}>
+          <div className="relative backdrop-blur-sm rounded-xl sm:rounded-2xl border-2 border-[#292E41]/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:border-[#292E41]/50 overflow-hidden" style={{ 
+            backgroundColor: '#E6DFD2',
+            backgroundImage: `
+              repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+              repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+            `,
+            backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+            filter: 'contrast(1.1) brightness(0.98)'
+          }}>
             {/* Card content */}
             <div className="relative p-4 sm:p-6 md:p-8 lg:p-10">
               {isLoading ? (
                 <div className="flex items-center justify-center py-12 sm:py-16 md:py-24">
                   <div className="flex flex-col items-center gap-3 sm:gap-4">
                     <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 animate-spin text-[#292E41]" />
-                    <span className="text-[#292E41]/70 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg">
+                    <span className="text-[#292E41]/70 text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       Loading entourage...
                     </span>
                   </div>
@@ -240,12 +301,13 @@ export function Entourage() {
               ) : error ? (
                 <div className="flex items-center justify-center py-12 sm:py-16 md:py-24">
                   <div className="text-center">
-                    <p className="text-red-600 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
+                    <p className="text-red-600 text-sm sm:text-base md:text-lg mb-3 sm:mb-4" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                       {error}
                     </p>
                     <button
                       onClick={fetchEntourage}
-                      className="text-[#292E41] hover:text-[#292E41]/70 font-[family-name:var(--font-crimson)] underline transition-colors duration-300 text-sm sm:text-base"
+                      className="text-[#292E41] hover:text-[#292E41]/70 underline transition-colors duration-300 text-sm sm:text-base"
+                      style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                     >
                       Try again
                     </button>
@@ -254,7 +316,7 @@ export function Entourage() {
               ) : entourage.length === 0 ? (
                 <div className="text-center py-12 sm:py-16 md:py-24">
                   <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 text-[#292E41]/30 mx-auto mb-3 sm:mb-4" />
-                  <p className="text-[#292E41]/70 font-[family-name:var(--font-crimson)] text-sm sm:text-base md:text-lg">
+                  <p className="text-[#292E41]/70 text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     No entourage members yet
                   </p>
                 </div>

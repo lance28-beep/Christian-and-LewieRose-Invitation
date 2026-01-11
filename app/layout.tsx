@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Great_Vibes, Inter, Imperial_Script, Cinzel, Crimson_Text, Ephesis, Anton } from "next/font/google"
+import { Great_Vibes, Inter, Imperial_Script, Cinzel, Crimson_Text, Ephesis, Anton, Roboto } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { siteConfig } from "@/content/site"
@@ -58,6 +58,7 @@ const jsonLd = {
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const roboto = Roboto({ subsets: ["latin"], weight: ["100", "300", "400", "500", "700", "900"], variable: "--font-roboto" })
 const greatVibes = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-serif" })
 const imperialScript = Imperial_Script({ subsets: ["latin"], weight: "400", variable: "--font-imperial-script" })
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-cinzel" })
@@ -170,6 +171,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=yes,email=no,address=no" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
         <link rel="preload" as="image" href={mobileHero} media="(max-width: 767px)" />
@@ -179,7 +181,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body
-        className={`${inter.variable} ${greatVibes.variable} ${imperialScript.variable} ${cinzel.variable} ${crimsonText.variable} ${ephesis.variable} ${anton.variable} font-inter antialiased text-foreground`}
+        className={`${inter.variable} ${roboto.variable} ${greatVibes.variable} ${imperialScript.variable} ${cinzel.variable} ${crimsonText.variable} ${ephesis.variable} ${anton.variable} font-inter antialiased text-foreground`}
       >
         {children}
         <Analytics />

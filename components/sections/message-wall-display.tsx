@@ -39,8 +39,8 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
       <div className="relative">
         <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-7">
         {[1, 2, 3].map((i) => (
-          <Card key={i} className="border border-[#292E41]/8 shadow-sm rounded-lg" style={{ backgroundColor: '#F1D3D3' }}>
-            <CardContent className="py-4 px-4 sm:py-5 sm:px-5 md:py-6 md:px-7" style={{ backgroundColor: '#F1D3D3' }}>
+          <Card key={i} className="border border-[#292E41]/8 shadow-sm rounded-lg">
+            <CardContent className="py-4 px-4 sm:py-5 sm:px-5 md:py-6 md:px-7">
               <Skeleton className="h-16 sm:h-20 md:h-24 w-full mb-3 sm:mb-4" />
               <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-[#292E41]/8">
                 <Skeleton className="w-8 h-8 sm:w-9 sm:h-9 rounded-full" />
@@ -64,20 +64,20 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
         <div className="relative inline-block mb-4 sm:mb-6">
           <div className="absolute inset-0 bg-[#292E41]/10 rounded-full blur-xl scale-150"></div>
           <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-[#292E41] rounded-full flex items-center justify-center mx-auto shadow-lg">
-            <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#F1D3D3]" />
+            <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-[#E6DFD2]" fill="#E6DFD2" />
           </div>
         </div>
-        <h3 className="text-base sm:text-lg md:text-xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-2 sm:mb-3 uppercase tracking-wider">
+        <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-3 uppercase tracking-wider" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
           No Messages Yet
         </h3>
-        <p className="text-xs sm:text-sm md:text-base text-[#F1D3D3] font-[family-name:var(--font-crimson)] font-light max-w-md mx-auto leading-relaxed tracking-wide">
+        <p className="text-sm sm:text-base md:text-lg font-normal text-white max-w-md mx-auto leading-relaxed tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
           Be the first to share your heartfelt wishes for the happy couple!
         </p>
         <div className="mt-4 sm:mt-6 flex justify-center">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#F1D3D3]" />
-            <span className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] text-[#F1D3D3]">Your message will appear here</span>
-            <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#F1D3D3]" />
+            <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#E6DFD2]" fill="#E6DFD2" />
+            <span className="text-xs sm:text-sm font-normal text-white" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>Your message will appear here</span>
+            <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#E6DFD2]" fill="#E6DFD2" />
           </div>
         </div>
         </div>
@@ -96,18 +96,17 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
           }`}
           style={{
             transitionDelay: `${index * 100}ms`,
-            animation: isAnimating ? 'none' : 'fadeInUp 0.6s ease-out forwards',
-            backgroundColor: '#F1D3D3'
+            animation: isAnimating ? 'none' : 'fadeInUp 0.6s ease-out forwards'
           }}
         >
-          <CardContent className="relative py-4 px-4 sm:py-5 sm:px-6 md:py-6 md:px-7" style={{ backgroundColor: '#F1D3D3' }}>
+          <CardContent className="relative py-4 px-4 sm:py-5 sm:px-6 md:py-6 md:px-7">
             {/* Message content with elegant quotation marks */}
             <div className="relative mb-3 sm:mb-4 md:mb-5">
-              <span className="absolute -left-2 -top-3 sm:-left-3 sm:-top-4 md:-left-4 md:-top-5 text-4xl sm:text-5xl md:text-6xl text-[#292E41]/8 font-[family-name:var(--font-crimson)] leading-none select-none group-hover:text-[#292E41]/12 transition-colors">"</span>
+              <span className="absolute -left-2 -top-3 sm:-left-3 sm:-top-4 md:-left-4 md:-top-5 text-4xl sm:text-5xl md:text-6xl text-[#292E41]/8 leading-none select-none group-hover:text-[#292E41]/12 transition-colors" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>"</span>
               <div className="relative pl-6 sm:pl-8 md:pl-10 pr-4 sm:pr-6 md:pr-8 pt-2 sm:pt-3 pb-1.5 sm:pb-2">
-                <p className="text-[#292E41] text-sm sm:text-base md:text-lg leading-relaxed font-[family-name:var(--font-crimson)] font-light tracking-wide">{msg.message}</p>
+                <p className="text-[#292E41] text-base sm:text-lg md:text-xl leading-relaxed font-normal tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>{msg.message}</p>
               </div>
-              <span className="absolute -right-2 -bottom-1 sm:-right-3 sm:-bottom-2 md:-right-4 md:-bottom-3 text-4xl sm:text-5xl md:text-6xl text-[#292E41]/8 font-[family-name:var(--font-crimson)] leading-none select-none group-hover:text-[#292E41]/12 transition-colors">"</span>
+              <span className="absolute -right-2 -bottom-1 sm:-right-3 sm:-bottom-2 md:-right-4 md:-bottom-3 text-4xl sm:text-5xl md:text-6xl text-[#292E41]/8 leading-none select-none group-hover:text-[#292E41]/12 transition-colors" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>"</span>
             </div>
             
             {/* Author info at bottom with elegant divider */}
@@ -115,7 +114,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <div className="flex-shrink-0">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#292E41] rounded-full flex items-center justify-center shadow-sm group-hover:shadow transition-shadow border border-[#292E41]/20">
-                    <span className="text-[#F1D3D3] font-[family-name:var(--font-crimson)] text-xs sm:text-sm font-semibold">
+                    <span className="text-[#E6DFD2] text-xs sm:text-sm font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       {msg.name
                         .split(" ")
                         .map((n) => n[0])
@@ -126,8 +125,8 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-[family-name:var(--font-crimson)] text-[#292E41] text-xs sm:text-sm md:text-base font-semibold leading-tight">{msg.name}</h4>
-                  <span className="text-[10px] sm:text-xs text-[#292E41]/50 font-[family-name:var(--font-crimson)] tracking-wide">
+                  <h4 className="text-sm sm:text-base md:text-lg text-[#292E41] font-bold leading-tight" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>{msg.name}</h4>
+                  <span className="text-xs sm:text-sm text-[#292E41]/50 font-normal tracking-wide" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     {new Date(msg.timestamp).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",

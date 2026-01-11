@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
 import Stack from "@/components/stack"
@@ -8,8 +9,43 @@ import { motion } from "motion/react"
 export function Narrative() {
   return (
     <Section id="narrative" className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#F1D3D3] backdrop-blur-sm pointer-events-none" />
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/bottom-left-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Background with paper texture */}
+      <div 
+        className="absolute inset-0 bg-[#E6DFD2] backdrop-blur-sm pointer-events-none" 
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+            repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
+            repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, transparent 1px, transparent 4px, rgba(0,0,0,0.02) 5px)
+          `,
+          backgroundSize: '100% 100%, 100% 100%, 20px 20px',
+          filter: 'contrast(1.1) brightness(0.98)',
+        }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title - Matching countdown section style */}
@@ -23,7 +59,7 @@ export function Narrative() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#292E41] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#292E41] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
             Our Love Story
           </h2>
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
@@ -64,7 +100,8 @@ export function Narrative() {
               />
 
               <motion.p 
-                className="text-center text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#292E41]/80 mt-8 font-light tracking-wide"
+                className="text-center text-base sm:text-lg md:text-xl font-normal text-[#292E41]/80 mt-8 tracking-wide"
+                style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -99,14 +136,14 @@ export function Narrative() {
               >
                 {/* First paragraph with drop cap */}
                 {index === 0 ? (
-                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] leading-relaxed text-[#292E41] text-pretty font-light pl-3 md:pl-6">
-                    <span className="float-left text-4xl md:text-7xl lg:text-8xl font-[family-name:var(--font-crimson)] font-bold text-[#292E41] leading-none mr-2 mt-1 drop-shadow-md">
+                  <p className="text-base sm:text-lg md:text-xl font-normal leading-relaxed text-[#292E41] text-pretty pl-3 md:pl-6" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+                    <span className="float-left text-5xl md:text-8xl lg:text-9xl font-bold text-[#292E41] leading-none mr-2 mt-1 drop-shadow-md" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                       {paragraph.charAt(0)}
                     </span>
                     {paragraph.slice(1)}
                   </p>
                 ) : (
-                  <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] leading-relaxed text-[#292E41] text-pretty font-light pl-3 md:pl-6">
+                  <p className="text-base sm:text-lg md:text-xl font-normal leading-relaxed text-[#292E41] text-pretty pl-3 md:pl-6" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
                     {paragraph}
                   </p>
                 )}
@@ -131,7 +168,8 @@ export function Narrative() {
             <div className="flex justify-center">
               <motion.a
                 href="#guest-list"
-                className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-3.5 md:py-4 lg:py-4.5 font-[family-name:var(--font-crimson)] font-semibold text-sm sm:text-base md:text-lg text-[#292E41] bg-white hover:bg-[#292E41] hover:text-[#F1D3D3] transition-all duration-300 tracking-wider uppercase border-2 border-[#292E41] hover:border-[#292E41]/80 hover:scale-105 hover:shadow-[0_10px_30px_rgba(41,46,65,0.25)] hover:brightness-105 active:scale-100 premium-shadow rounded-sm relative overflow-hidden group"
+                className="inline-flex items-center gap-2 sm:gap-3 px-8 sm:px-10 md:px-12 lg:px-14 py-3 sm:py-3.5 md:py-4 lg:py-4.5 font-bold text-sm sm:text-base md:text-lg text-[#292E41] bg-white hover:bg-[#292E41] hover:text-[#E6DFD2] transition-all duration-300 tracking-wider uppercase border-2 border-[#292E41] hover:border-[#292E41]/80 hover:scale-105 hover:shadow-[0_10px_30px_rgba(41,46,65,0.25)] hover:brightness-105 active:scale-100 premium-shadow rounded-sm relative overflow-hidden group"
+                style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

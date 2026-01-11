@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Section } from "@/components/section"
 import Counter from "@/components/counter"
 import { siteConfig } from "@/content/site"
@@ -104,16 +105,16 @@ export function Countdown() {
       {/* Compact elegant card with earth tone accents */}
       <div className="relative group">
         {/* Subtle earth tone glow on hover */}
-        <div className="absolute -inset-0.5 bg-gradient-to-br from-[#F1D3D3]/20 to-[#F1D3D3]/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-[#292E41]/20 to-[#292E41]/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
         
         {/* Main card - more compact for mobile */}
-        <div className="relative elegant-card rounded-lg sm:rounded-xl px-2.5 py-3 sm:px-4 sm:py-4 md:px-5 md:py-5 lg:px-6 lg:py-6 border border-[#F1D3D3]/30 premium-shadow hover:border-[#F1D3D3]/50 transition-all duration-300 min-w-[60px] sm:min-w-[70px] md:min-w-[85px] lg:min-w-[95px]">
+        <div className="relative elegant-card rounded-lg sm:rounded-xl px-2.5 py-3 sm:px-4 sm:py-4 md:px-5 md:py-5 lg:px-6 lg:py-6 border border-[#292E41]/30 premium-shadow hover:border-[#292E41]/50 transition-all duration-300 min-w-[60px] sm:min-w-[70px] md:min-w-[85px] lg:min-w-[95px]">
           {/* Counter - smaller for mobile */}
           <div className="relative z-10 flex items-center justify-center">
             <Counter
               value={value}
               places={value >= 100 ? [100, 10, 1] : [10, 1]}
-              fontSize={28}
+              fontSize={36}
               padding={4}
               gap={2}
               textColor="#292E41"
@@ -129,7 +130,7 @@ export function Countdown() {
       </div>
 
       {/* Compact label */}
-      <span className="text-[10px] sm:text-xs font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] uppercase tracking-wide">
+      <span className="text-sm sm:text-base font-bold text-[#292E41] uppercase tracking-wide" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
         {label}
       </span>
     </div>
@@ -140,9 +141,33 @@ export function Countdown() {
       id="countdown"
       className="relative py-16 sm:py-20 md:py-24 lg:py-28"
     >
-      {/* Semi-transparent overlay for better text readability */}
+      {/* Bottom Left Corner Decoration */}
+      <div className="absolute bottom-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/left-bottom-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px]"
+          priority
+        />
+      </div>
+
+      {/* Bottom Right Corner Decoration */}
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/left-bottom-corner.png"
+          alt=""
+          width={200}
+          height={200}
+          className="w-auto h-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] scale-x-[-1]"
+          priority
+        />
+      </div>
+
+      {/* Background with paper texture */}
       <div 
-        className="absolute inset-0 bg-[#292E41] backdrop-blur-sm pointer-events-none" 
+        className="absolute inset-0 bg-[#E6DFD2] backdrop-blur-sm pointer-events-none" 
         style={{
           backgroundImage: `
             repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 1px, transparent 2px, rgba(0,0,0,0.03) 3px),
@@ -157,15 +182,15 @@ export function Countdown() {
       {/* Header - More compact for mobile */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4 sm:px-6">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
         </div>
-        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#292E41] mb-4 sm:mb-6 uppercase tracking-[0.1em] sm:tracking-[0.12em] elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700, fontOpticalSizing: 'auto', fontStyle: 'normal', fontVariationSettings: '"wdth" 100' }}>
           Countdown to Our Special Day
         </h2>
         <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
-          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#F1D3D3] to-transparent" />
+          <div className="h-[1px] w-12 sm:w-16 md:w-24 bg-gradient-to-r from-transparent via-[#292E41] to-transparent" />
         </div>
-        <p className="text-sm sm:text-base md:text-lg font-[family-name:var(--font-crimson)] text-[#F1D3D3]/80 font-light max-w-xl mx-auto leading-relaxed tracking-wide px-2">
+        <p className="text-lg sm:text-xl md:text-2xl font-normal text-[#292E41]/80 max-w-xl mx-auto leading-relaxed tracking-wide px-2" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
           Every moment brings us closer to forever
         </p>
       </div>
@@ -186,21 +211,21 @@ export function Countdown() {
             <div className="text-center mb-6 sm:mb-8 md:mb-10">
               {/* Top decorative line */}
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
-                <div className="w-1.5 h-1.5 bg-[#F1D3D3] rounded-full" />
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#292E41] to-[#292E41]" />
+                <div className="w-1.5 h-1.5 bg-[#292E41] rounded-full" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#292E41] to-[#292E41]" />
               </div>
               
               {/* Save The Date text - Better readability */}
-              <p className="text-[10px] sm:text-xs md:text-sm font-[family-name:var(--font-crimson)] font-bold text-[#F1D3D3] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3 sm:mb-4">
+              <p className="text-sm sm:text-base md:text-lg font-bold text-[#292E41] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-3 sm:mb-4" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                 Save The Date
               </p>
               
               {/* Bottom decorative line */}
               <div className="flex items-center justify-center gap-2 sm:gap-3">
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
-                <div className="w-1.5 h-1.5 bg-[#F1D3D3] rounded-full" />
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#292E41] to-[#292E41]" />
+                <div className="w-1.5 h-1.5 bg-[#292E41] rounded-full" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#292E41] to-[#292E41]" />
               </div>
             </div>
 
@@ -208,7 +233,7 @@ export function Countdown() {
             <div className="text-center mb-6 sm:mb-8 md:mb-10">
               {/* Month - Script style with earth tones, smaller for mobile */}
               <div className="mb-3 sm:mb-4 md:mb-5">
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-ephesis)] text-[#F1D3D3] leading-none">
+                <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-ephesis)] text-[#292E41] leading-none">
                   {(() => {
                     const weddingDate = new Date(siteConfig.ceremony.date)
                     const monthNames = ["January", "February", "March", "April", "May", "June", 
@@ -221,7 +246,7 @@ export function Countdown() {
               {/* Day and Year - Horizontal layout with divider, more compact */}
               <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 mb-5 sm:mb-6">
                 {/* Day - Large and bold but scaled for mobile */}
-                <p className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] leading-none elegant-text-shadow">
+                <p className="text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold text-[#292E41] leading-none elegant-text-shadow" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                   {(() => {
                     const weddingDate = new Date(siteConfig.ceremony.date)
                     return weddingDate.getDate()
@@ -229,10 +254,10 @@ export function Countdown() {
                 </p>
                 
                 {/* Vertical divider with earth tone gradient - shorter */}
-                <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-[#F1D3D3] via-[#F1D3D3] to-[#F1D3D3]" />
+                <div className="h-10 sm:h-12 md:h-16 lg:h-20 w-[2px] bg-gradient-to-b from-[#292E41] via-[#292E41] to-[#292E41]" />
                 
                 {/* Year - Elegant and refined, smaller for mobile */}
-                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[family-name:var(--font-crimson)] font-normal text-[#F1D3D3] leading-none">
+                <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#292E41] leading-none" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                   {(() => {
                     const weddingDate = new Date(siteConfig.ceremony.date)
                     return weddingDate.getFullYear()
@@ -245,21 +270,21 @@ export function Countdown() {
             <div className="text-center">
               {/* Top decorative line */}
               <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
-                <div className="w-1.5 h-1.5 bg-[#F1D3D3] rounded-full" />
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#292E41] to-[#292E41]" />
+                <div className="w-1.5 h-1.5 bg-[#292E41] rounded-full" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#292E41] to-[#292E41]" />
               </div>
               
               {/* Time - Better readability */}
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl font-[family-name:var(--font-crimson)] font-semibold text-[#F1D3D3] tracking-wide mb-3 sm:mb-4">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#292E41] tracking-wide mb-3 sm:mb-4" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
                 {siteConfig.ceremony.time}
               </p>
               
               {/* Bottom decorative line */}
               <div className="flex items-center justify-center gap-2 sm:gap-3">
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
-                <div className="w-1.5 h-1.5 bg-[#F1D3D3] rounded-full" />
-                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#F1D3D3] to-[#F1D3D3]" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent via-[#292E41] to-[#292E41]" />
+                <div className="w-1.5 h-1.5 bg-[#292E41] rounded-full" />
+                <div className="h-[1px] w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent via-[#292E41] to-[#292E41]" />
               </div>
             </div>
           </div>
