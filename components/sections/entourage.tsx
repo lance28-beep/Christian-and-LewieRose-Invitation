@@ -66,12 +66,16 @@ export function Entourage() {
     };
   }, []);
 
-  // Group entourage by role category
+  // Group entourage by role category (filter out Secondary Sponsor category)
   const grouped = useMemo(() => {
     const grouped: Record<string, EntourageMember[]> = {};
 
     entourage.forEach((member) => {
       const category = member.RoleCategory || "Other";
+      // Filter out Secondary Sponsor categories
+      if (category === "Secondary Sponsor" || category === "Secondary Sponsors") {
+        return;
+      }
       if (!grouped[category]) {
         grouped[category] = [];
       }

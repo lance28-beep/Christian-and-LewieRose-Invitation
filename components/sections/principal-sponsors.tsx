@@ -11,6 +11,13 @@ interface PrincipalSponsor {
   FemalePrincipalSponsor: string
 }
 
+interface EntourageMember {
+  Name: string
+  RoleCategory: string
+  RoleTitle: string
+  Email: string
+}
+
 export function PrincipalSponsors() {
   // Helper component for elegant section titles
   const SectionTitle = ({
@@ -46,11 +53,11 @@ export function PrincipalSponsors() {
 
   // Remote data state
   const [sponsors, setSponsors] = useState<PrincipalSponsor[]>([])
+  const [entourage, setEntourage] = useState<EntourageMember[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   const fetchSponsors = async () => {
-    setIsLoading(true)
     try {
       const res = await fetch("/api/principal-sponsor", { cache: "no-store" })
       if (!res.ok) throw new Error("Failed to load principal sponsors")
@@ -59,13 +66,25 @@ export function PrincipalSponsors() {
     } catch (e: any) {
       console.error(e)
       setError(e?.message || "Failed to load principal sponsors")
-    } finally {
-      setIsLoading(false)
+    }
+  }
+
+  const fetchEntourage = async () => {
+    try {
+      const res = await fetch("/api/entourage", { cache: "no-store" })
+      if (!res.ok) throw new Error("Failed to load entourage")
+      const data: EntourageMember[] = await res.json()
+      setEntourage(data)
+    } catch (e: any) {
+      console.error("Failed to load entourage:", e)
     }
   }
 
   useEffect(() => {
-    fetchSponsors()
+    setIsLoading(true)
+    Promise.all([fetchSponsors(), fetchEntourage()]).finally(() => {
+      setIsLoading(false)
+    })
 
     // Set up auto-refresh listener for dashboard updates
     const handleSponsorsUpdate = () => {
@@ -74,10 +93,18 @@ export function PrincipalSponsors() {
       }, 1000)
     }
 
+    const handleEntourageUpdate = () => {
+      setTimeout(() => {
+        fetchEntourage()
+      }, 1000)
+    }
+
     window.addEventListener("sponsorsUpdated", handleSponsorsUpdate)
+    window.addEventListener("entourageUpdated", handleEntourageUpdate)
 
     return () => {
       window.removeEventListener("sponsorsUpdated", handleSponsorsUpdate)
+      window.removeEventListener("entourageUpdated", handleEntourageUpdate)
     }
   }, [])
 
@@ -86,6 +113,15 @@ export function PrincipalSponsors() {
     sponsors.filter(s => s.MalePrincipalSponsor || s.FemalePrincipalSponsor),
     [sponsors]
   )
+
+  // Filter Secondary Sponsors from entourage
+  const secondarySponsors = useMemo(() => {
+    return entourage.filter(
+      (member) => 
+        member.RoleCategory === "Secondary Sponsor" || 
+        member.RoleCategory === "Secondary Sponsors"
+    )
+  }, [entourage])
 
   return (
     <Section
@@ -187,7 +223,7 @@ export function PrincipalSponsors() {
                     </button>
                   </div>
                 </div>
-              ) : sponsorPairs.length === 0 ? (
+              ) : sponsorPairs.length === 0 && secondarySponsors.length === 0 ? (
                 <div className="text-center py-12 sm:py-16 md:py-24">
                   <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 text-[#292E41]/30 mx-auto mb-3 sm:mb-4" />
                   <p className="text-[#292E41]/70 text-sm sm:text-base md:text-lg" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
@@ -195,32 +231,88 @@ export function PrincipalSponsors() {
                   </p>
                 </div>
               ) : (
-                <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-2 sm:mb-2.5 md:mb-3.5">
-                    <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">Male Principal Sponsors</SectionTitle>
-                    <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">Female Principal Sponsors</SectionTitle>
+                <>
+                  {sponsorPairs.length > 0 && (
+                  <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
+                    <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-2 sm:mb-2.5 md:mb-3.5">
+                      <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">Male Principal Sponsors</SectionTitle>
+                      <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">Female Principal Sponsors</SectionTitle>
+                    </div>
+                    <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 items-stretch">
+                      {sponsorPairs.map((pair, idx) => (
+                        <React.Fragment key={`sponsor-pair-${idx}`}>
+                          <div key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
+                            {pair.MalePrincipalSponsor ? (
+                              <NameItem name={pair.MalePrincipalSponsor} align="right" />
+                            ) : (
+                              <div className="py-0.5 sm:py-1 md:py-1.5" />
+                            )}
+                          </div>
+                          <div key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
+                            {pair.FemalePrincipalSponsor ? (
+                              <NameItem name={pair.FemalePrincipalSponsor} align="left" />
+                            ) : (
+                              <div className="py-0.5 sm:py-1 md:py-1.5" />
+                            )}
+                          </div>
+                        </React.Fragment>
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 items-stretch">
-                    {sponsorPairs.map((pair, idx) => (
-                      <React.Fragment key={`sponsor-pair-${idx}`}>
-                        <div key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
-                          {pair.MalePrincipalSponsor ? (
-                            <NameItem name={pair.MalePrincipalSponsor} align="right" />
-                          ) : (
-                            <div className="py-0.5 sm:py-1 md:py-1.5" />
-                          )}
+                  )}
+
+                  {/* Secondary Sponsors Section */}
+                  {secondarySponsors.length > 0 && (
+                    <>
+                      <div className="flex items-center justify-center gap-3 sm:gap-4 py-4 sm:py-5 mb-6 sm:mb-7 md:mb-9">
+                        <div className="h-px w-12 sm:w-16 md:w-20 bg-[#292E41]/40" />
+                        <div className="w-1.5 h-1.5 bg-[#292E41]/50 rounded-full" />
+                        <div className="h-px w-12 sm:w-16 md:w-20 bg-[#292E41]/40" />
+                      </div>
+                      <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
+                        <SectionTitle align="center">Secondary Sponsors</SectionTitle>
+                        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 max-w-2xl mx-auto">
+                          {(() => {
+                            const half = Math.ceil(secondarySponsors.length / 2)
+                            const left = secondarySponsors.slice(0, half)
+                            const right = secondarySponsors.slice(half)
+                            const maxLen = Math.max(left.length, right.length)
+                            const rows = []
+                            for (let i = 0; i < maxLen; i++) {
+                              const l = left[i]
+                              const r = right[i]
+                              rows.push(
+                                <React.Fragment key={`secondary-row-${i}`}>
+                                  <div
+                                    key={`secondary-cell-left-${i}`}
+                                    className="px-2 sm:px-3 md:px-4"
+                                  >
+                                    {l ? (
+                                      <NameItem name={l.Name} align="right" />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
+                                  </div>
+                                  <div
+                                    key={`secondary-cell-right-${i}`}
+                                    className="px-2 sm:px-3 md:px-4"
+                                  >
+                                    {r ? (
+                                      <NameItem name={r.Name} align="left" />
+                                    ) : (
+                                      <div className="py-0.5 sm:py-1 md:py-1.5" />
+                                    )}
+                                  </div>
+                                </React.Fragment>
+                              )
+                            }
+                            return rows
+                          })()}
                         </div>
-                        <div key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
-                          {pair.FemalePrincipalSponsor ? (
-                            <NameItem name={pair.FemalePrincipalSponsor} align="left" />
-                          ) : (
-                            <div className="py-0.5 sm:py-1 md:py-1.5" />
-                          )}
-                        </div>
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
+                      </div>
+                    </>
+                  )}
+                </>
               )}
             </div>
           </div>
