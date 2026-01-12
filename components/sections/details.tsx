@@ -388,8 +388,11 @@ export function Details() {
             <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#292E41] mb-4 sm:mb-6 uppercase tracking-[0.12em] text-center" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>
               Attire Guidelines
             </h4>
-            <p className="text-lg sm:text-xl md:text-2xl font-normal text-[#292E41] leading-relaxed text-center mb-6 sm:mb-8" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-              LADIES: LIGHT PINK | GENTLEMEN: NAVY BLUE
+            <p className="text-lg sm:text-xl md:text-2xl font-normal text-[#292E41] leading-relaxed text-center mb-4 sm:mb-5" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+              GENTLEMEN: NAVY BLUE | LADIES: LIGHT PINK
+            </p>
+            <p className="text-base sm:text-lg md:text-xl font-normal text-[#292E41] leading-relaxed text-center mb-6 sm:mb-8" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+              Formal attire is requested. We have a strict dress code; guests are kindly asked to observe modest dress—strictly no off-shoulder attire.
             </p>
             <div className="flex justify-center gap-3 sm:gap-4 flex-wrap">
               <div className="flex flex-col items-center gap-2 sm:gap-2.5">
