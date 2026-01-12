@@ -14,8 +14,8 @@ interface EntourageMember {
 
 const ROLE_CATEGORY_ORDER = [
   "The Couple",
-  "Parents of the Groom",
-  "Parents of the Bride",
+  "Family of the Groom",
+  "Family of the Bride",
   "Best Man",
   "Maid of Honor",
   "Candle Sponsors",
@@ -366,14 +366,14 @@ export function Entourage() {
 
                     // Special handling for Parents sections - combine into single two-column layout
                     if (
-                      category === "Parents of the Bride" ||
-                      category === "Parents of the Groom"
+                      category === "Family of the Bride" ||
+                      category === "Family of the Groom"
                     ) {
                       // Get both parent groups
                       const parentsBride =
-                        grouped["Parents of the Bride"] || [];
+                        grouped["Family of the Bride"] || [];
                       const parentsGroom =
-                        grouped["Parents of the Groom"] || [];
+                        grouped["Family of the Groom"] || [];
 
                       // Helper function to sort parents: father first, then mother
                       const sortParents = (members: EntourageMember[]) => {
@@ -392,8 +392,8 @@ export function Entourage() {
                         });
                       };
 
-                      // Only render once (when processing "Parents of the Groom")
-                      if (category === "Parents of the Groom") {
+                      // Only render once (when processing "Family of the Groom")
+                      if (category === "Family of the Groom") {
                         return (
                           <div key="Parents">
                             {categoryIndex > 0 && (
@@ -404,8 +404,8 @@ export function Entourage() {
                               </div>
                             )}
                             <TwoColumnLayout
-                              leftTitle="Parents of the Groom"
-                              rightTitle="Parents of the Bride"
+                              leftTitle="Family of the Groom"
+                              rightTitle="Family of the Bride"
                             >
                               {(() => {
                                 const leftArr = sortParents(parentsGroom);
@@ -455,7 +455,7 @@ export function Entourage() {
                           </div>
                         );
                       }
-                      // Skip rendering for "Parents of the Bride" since it's already rendered above
+                      // Skip rendering for "Family of the Bride" since it's already rendered above
                       return null;
                     }
 

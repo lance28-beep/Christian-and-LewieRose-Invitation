@@ -1,7 +1,7 @@
 "use client"
 
 import { Section } from "@/components/section"
-import { Shirt, Copy, Check, Navigation, MapPin } from "lucide-react"
+import { Shirt, Copy, Check, Navigation, MapPin, Phone } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
 import { QRCodeSVG } from "qrcode.react"
@@ -457,9 +457,29 @@ export function Details() {
 
               {/* RSVP Contact */}
               <div className="bg-gradient-to-br from-white/30 via-white/20 to-white rounded-xl p-5 sm:p-6 md:p-7 border border-[#292E41]/20">
-                <p className="text-base sm:text-lg md:text-xl font-normal text-[#292E41] leading-relaxed" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
-                  <span className="font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>RSVP Contact:</span> Please reach out to Christian & Lewie Rose (contact information to be updated)
+                <p className="text-base sm:text-lg md:text-xl font-normal text-[#292E41] leading-relaxed mb-3 sm:mb-4" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}>
+                  <span className="font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>RSVP Contact:</span> Please reach out to Christian & Lewie Rose
                 </p>
+                <div className="flex flex-col gap-2 sm:gap-3">
+                  <a
+                    href="tel:+639109879292"
+                    className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-[#292E41] hover:text-[#292E41]/80 transition-colors duration-200 group"
+                    style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
+                  >
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#292E41] group-hover:text-[#292E41]/80 transition-colors duration-200 flex-shrink-0" />
+                    <span className="font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>Lewie:</span>
+                    <span>09109879292</span>
+                  </a>
+                  <a
+                    href="tel:+639101667132"
+                    className="flex items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-[#292E41] hover:text-[#292E41]/80 transition-colors duration-200 group"
+                    style={{ fontFamily: '"Inter", sans-serif', fontWeight: 400 }}
+                  >
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-[#292E41] group-hover:text-[#292E41]/80 transition-colors duration-200 flex-shrink-0" />
+                    <span className="font-bold" style={{ fontFamily: '"Roboto", sans-serif', fontWeight: 700 }}>Christian:</span>
+                    <span>09101667132</span>
+                  </a>
+                </div>
               </div>
             </div>
 

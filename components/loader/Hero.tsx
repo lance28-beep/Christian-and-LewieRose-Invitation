@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { FadeIn } from './FadeIn';
 
 interface HeroProps {
@@ -7,19 +8,74 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
+  // Desktop images
+  const desktopImages = [
+    '/gallery/couple (1).webp',
+    '/gallery/couple (2).webp',
+    '/gallery/couple (4).webp',
+    '/gallery/couple (5).webp',
+    '/gallery/couple (7).webp',
+    '/gallery/couple (8).webp',
+  ];
+
+  // Mobile images
+  const mobileImages = [
+    '/gallery/couple (3).webp',
+    '/gallery/couple (6).webp',
+    '/gallery/couple (9).webp',
+    '/gallery/couple (10).webp',
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile vs desktop
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Cycle through images
+  useEffect(() => {
+    if (!visible) return;
+
+    const images = isMobile ? mobileImages : desktopImages;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [visible, isMobile]);
+
+  const images = isMobile ? mobileImages : desktopImages;
+
   return (
     <div className={`fixed inset-0 z-[60] flex items-center justify-center overflow-hidden transition-all duration-1000 ${visible ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-      {/* Background Video */}
+      {/* Background Images with Smooth Transition */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/Details/background.mp4" type="video/mp4" />
-        </video>
+        {images.map((src, index) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover"
+              priority={index === 0}
+              quality={90}
+              sizes="100vw"
+            />
+          </div>
+        ))}
 
         {/* Soft overlay tint */}
         <div className="absolute inset-0 bg-[#EDABAD]/55 pointer-events-none" />
