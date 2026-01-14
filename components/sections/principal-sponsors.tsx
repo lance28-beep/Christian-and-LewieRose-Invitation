@@ -261,7 +261,7 @@ export function PrincipalSponsors() {
                   </div>
                   )}
 
-                  {/* Secondary Sponsors Section */}
+                  {/* Honored Guests Section */}
                   {secondarySponsors.length > 0 && (
                     <>
                       <div className="flex items-center justify-center gap-3 sm:gap-4 py-4 sm:py-5 mb-6 sm:mb-7 md:mb-9">
@@ -270,7 +270,7 @@ export function PrincipalSponsors() {
                         <div className="h-px w-12 sm:w-16 md:w-20 bg-[#292E41]/40" />
                       </div>
                       <div className="mb-3 sm:mb-5 md:mb-7 lg:mb-9">
-                        <SectionTitle align="center">Secondary Sponsors</SectionTitle>
+                        <SectionTitle align="center">Honored Guests</SectionTitle>
                         <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-1 sm:gap-y-1.5 md:gap-y-2 max-w-2xl mx-auto">
                           {(() => {
                             const half = Math.ceil(secondarySponsors.length / 2)
